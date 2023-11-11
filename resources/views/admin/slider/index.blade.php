@@ -18,7 +18,7 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            {{ $dataTable->table() }}
+                            {{ $dataTable->table(['style' => 'width: 100%']) }}
                         </div>
                     </div>
                 </div>
