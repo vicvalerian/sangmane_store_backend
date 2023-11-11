@@ -13,8 +13,8 @@
                         <div class="card-header">
                             <h4>List of Sub Categories</h4>
                             <div class="card-header-action">
-                                <a href="{{ route('admin.category.create') }}" class="btn btn-primary"><i
-                                        class="fas fa-plus"></i> Add Category</a>
+                                <a href="{{ route('admin.sub-category.create') }}" class="btn btn-primary"><i
+                                        class="fas fa-plus"></i> Add Sub Category</a>
                             </div>
                         </div>
                         <div class="card-body">
