@@ -26,7 +26,14 @@
                             href="{{ route('admin.child-category.index') }}">Child Category</a></li>
                 </ul>
             </li>
-
+            <li class="dropdown {{ setActiveSidebar(['admin.brand.*']) }}">
+                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i>
+                    <span>Manage Product</span></a>
+                <ul class="dropdown-menu">
+                    <li class="{{ setActiveSidebar(['admin.brand.*']) }}"><a class="nav-link"
+                            href="{{ route('admin.brand.index') }}">Brand</a></li>
+                </ul>
+            </li>
             <li class="dropdown {{ setActiveSidebar(['admin.slider.*']) }}">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i>
                     <span>Manage Website</span></a>
