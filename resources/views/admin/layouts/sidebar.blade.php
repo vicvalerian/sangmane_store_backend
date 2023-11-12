@@ -32,6 +32,8 @@
                 <ul class="dropdown-menu">
                     <li class="{{ setActiveSidebar(['admin.brand.*']) }}"><a class="nav-link"
                             href="{{ route('admin.brand.index') }}">Brand</a></li>
+                    <li class="{{ setActiveSidebar(['admin.brand.*']) }}"><a class="nav-link"
+                            href="{{ route('admin.brand.index') }}">Product</a></li>
                 </ul>
             </li>
             <li class="dropdown {{ setActiveSidebar(['admin.vendor-profile.*']) }}">
