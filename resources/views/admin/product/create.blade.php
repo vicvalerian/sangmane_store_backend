@@ -152,6 +152,7 @@
         $(document).ready(function() {
             //get sub category
             $('body').on('change', '.main-category', function(e) {
+                $('.child-category').html('<option value="">Select</option>')
                 let id = $(this).val();
                 $.ajax({
                     method: 'GET',
