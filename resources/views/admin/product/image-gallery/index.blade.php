@@ -5,6 +5,9 @@
         <div class="section-header">
             <h1>Product Image Gallery</h1>
         </div>
+        <div class="mb-3">
+            <a href="{{ route('admin.product.index') }}" class="btn btn-primary">Back</a>
+        </div>
 
         <div class="section-body">
             <div class="row">

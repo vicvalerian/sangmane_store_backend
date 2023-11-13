@@ -27,14 +27,15 @@
                 </ul>
             </li>
             <li
-                class="dropdown {{ setActiveSidebar(['admin.brand.*', 'admin.product.*', 'admin.product-image-gallery.*']) }}">
+                class="dropdown {{ setActiveSidebar(['admin.brand.*', 'admin.product.*', 'admin.product-image-gallery.*', 'admin.product-variant.*']) }}">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i>
                     <span>Manage Product</span></a>
                 <ul class="dropdown-menu">
                     <li class="{{ setActiveSidebar(['admin.brand.*']) }}"><a class="nav-link"
                             href="{{ route('admin.brand.index') }}">Brand</a></li>
-                    <li class="{{ setActiveSidebar(['admin.product.*', 'admin.product-image-gallery.*']) }}"><a
-                            class="nav-link" href="{{ route('admin.product.index') }}">Product</a></li>
+                    <li
+                        class="{{ setActiveSidebar(['admin.product.*', 'admin.product-image-gallery.*', 'admin.product-variant.*']) }}">
+                        <a class="nav-link" href="{{ route('admin.product.index') }}">Product</a></li>
                 </ul>
             </li>
             <li class="dropdown {{ setActiveSidebar(['admin.vendor-profile.*']) }}">
