@@ -45,7 +45,7 @@ class VendorProductDataTable extends DataTable
                                 <a class="dropdown-item has-icon" href="' . route('vendor.product-image-gallery.index', ['product' => $query->id]) . '">Image Gallery</a>
                             </li>
                             <li>
-                                <a class="dropdown-item has-icon" href="' . route('admin.product-variant.index', ['product' => $query->id]) . '">Product Variant</a>
+                                <a class="dropdown-item has-icon" href="' . route('vendor.product-variant.index', ['product' => $query->id]) . '">Product Variant</a>
                             </li>
                             </ul>
                         </div>';

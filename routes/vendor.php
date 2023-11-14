@@ -3,6 +3,7 @@
 use App\Http\Controllers\Backend\VendorController;
 use App\Http\Controllers\Backend\VendorProductController;
 use App\Http\Controllers\Backend\VendorProductImageGalleryController;
+use App\Http\Controllers\Backend\VendorProductVariantController;
 use App\Http\Controllers\Backend\VendorProfileController;
 use App\Http\Controllers\Backend\VendorShopProfileController;
 use Illuminate\Support\Facades\Route;
@@ -23,3 +24,7 @@ Route::resource('product', VendorProductController::class);
 
 //Product Image Gallery Routes
 Route::resource('product-image-gallery', VendorProductImageGalleryController::class);
+
+//Product Variant Routes
+Route::put('product-variant/change-status', [VendorProductVariantController::class, 'changeStatus'])->name('product-variant.change-status');
+Route::resource('product-variant', VendorProductVariantController::class);
