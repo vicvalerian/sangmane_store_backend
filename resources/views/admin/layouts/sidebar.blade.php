@@ -33,6 +33,8 @@
                     'admin.product-image-gallery.*',
                     'admin.product-variant.*',
                     'admin.product-variant-item.*',
+                    'admin.seller-product.index',
+                    'admin.seller-pending-product.index',
                 ]) }}">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i>
                     <span>Manage Product</span></a>
@@ -47,6 +49,11 @@
                             'admin.product-variant-item.*',
                         ]) }}">
                         <a class="nav-link" href="{{ route('admin.product.index') }}">Product</a>
+                    <li class="{{ setActiveSidebar(['admin.seller-product.*']) }}">
+                        <a class="nav-link" href="{{ route('admin.seller-product.index') }}">Seller Product</a>
+                    </li>
+                    <li class="{{ setActiveSidebar(['admin.seller-pending-product.index']) }}">
+                        <a class="nav-link" href="{{ route('admin.seller-pending-product.index') }}">Seller Pending Product</a>
                     </li>
                 </ul>
             </li>
