@@ -26,16 +26,6 @@ class VendorProductDataTable extends DataTable
             ->addColumn('action', function ($query) {
                 $editBtn = "<a href='" . route('vendor.product.edit', $query->id) . "' class='btn btn-primary'><i class='far fa-edit'></i></a>";
                 $deleteBtn = "<a href='" . route('vendor.product.destroy', $query->id) . "' class='btn btn-danger delete-item'><i class='far fa-trash-alt'></i></a>";
-            //     $moreBtn = '
-            // <div class="dropdown dropleft d-inline">
-            //     <button class="btn btn-primary dropdown-toggle dropleft ml-1 " type="button" id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            //     <i class="fas fa-cog"></i>
-            //     </button>
-            //     <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; transform: translate3d(0px, 28px, 0px); top: 0px; left: 0px; will-change: transform;">
-            //     <a class="dropdown-item has-icon" href="' . route('admin.product-image-gallery.index', ['product' => $query->id]) . '"><i class="far fa-heart"></i> Image Gallery</a>
-            //     <a class="dropdown-item has-icon" href="' . route('admin.product-variant.index', ['product' => $query->id]) . '"><i class="far fa-file"></i> Product Variant</a>
-            //     </div>
-            // </div>';
                 $moreBtn = '<div class="btn-group dropstart" style="margin-left: 4px">
                             <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="fas fa-cog"></i>
@@ -78,17 +68,24 @@ class VendorProductDataTable extends DataTable
             ->addColumn('status', function ($query) {
                 if ($query->status == 1) {
                     $button = '<div class="form-check form-switch">
-                            <input class="form-check-input" change-status checked type="checkbox" role="switch" data-id="' . $query->id . '" id="flexSwitchCheckDefault">
+                            <input class="form-check-input change-status" checked type="checkbox" role="switch" data-id="' . $query->id . '" id="flexSwitchCheckDefault">
                             </div>';
                 } else {
                     $button = '<div class="form-check form-switch">
-                            <input class="form-check-input" change-status type="checkbox" role="switch" data-id="' . $query->id . '" id="flexSwitchCheckDefault">
+                            <input class="form-check-input change-status" type="checkbox" role="switch" data-id="' . $query->id . '" id="flexSwitchCheckDefault">
                             </div>';
                 }
 
                 return $button;
             })
-            ->rawColumns(['image', 'action', 'status', 'type'])
+            ->addColumn('approved', function ($query) {
+                if ($query->is_approved == 1) {
+                    return "<i class='badge bg-success'>Approved</i>";
+                } else {
+                    return "<i class='badge bg-warning'>Pending</i>";
+                }
+            })
+            ->rawColumns(['image', 'action', 'status', 'type', 'approved'])
             ->setRowId('id');
     }
 
@@ -132,6 +129,7 @@ class VendorProductDataTable extends DataTable
             Column::make('image'),
             Column::make('name'),
             Column::make('price'),
+            Column::make('approved'),
             Column::make('type')
                 ->width(100),
             Column::make('status')
