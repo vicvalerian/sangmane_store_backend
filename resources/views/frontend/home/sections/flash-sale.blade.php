@@ -50,11 +50,11 @@
                             <a class="wsus__pro_name"
                                 href="{{ route('product-detail', $item->product->slug) }}">{{ $item->product->name }}</a>
                             @if (checkDiscount($item->product))
-                                <p class="wsus__price">${{ $item->product->offer_price }}
-                                    <del>${{ $item->product->price }}</del>
+                                <p class="wsus__price">{{ $settings->currency_icon }}{{ $item->product->offer_price }}
+                                    <del>{{ $settings->currency_icon }}{{ $item->product->price }}</del>
                                 </p>
                             @else
-                                <p class="wsus__price">${{ $item->product->price }}</p>
+                                <p class="wsus__price">{{ $settings->currency_icon }}{{ $item->product->price }}</p>
                             @endif
                             <a class="add_cart" href="#">add to cart</a>
                         </div>
@@ -72,7 +72,6 @@
                 year: {{ date('Y', strtotime($flashSale->end_date)) }},
                 month: {{ date('m', strtotime($flashSale->end_date)) }},
                 day: {{ date('d', strtotime($flashSale->end_date)) }},
-                enableUtc: true
             });
         })
     </script>
