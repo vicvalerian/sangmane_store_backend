@@ -58,7 +58,8 @@
                     </li>
                 </ul>
             </li>
-            <li class="dropdown {{ setActiveSidebar(['admin.vendor-profile.*', 'admin.flash-sale.*', 'admin.coupon.*']) }}">
+            <li
+                class="dropdown {{ setActiveSidebar(['admin.vendor-profile.*', 'admin.flash-sale.*', 'admin.coupon.*', 'admin.shipping-rule.*']) }}">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i>
                     <span>Ecommerce</span></a>
                 <ul class="dropdown-menu">
@@ -66,6 +67,8 @@
                             href="{{ route('admin.flash-sale.index') }}">Flash Sale</a></li>
                     <li class="{{ setActiveSidebar(['admin.coupon.*']) }}"><a class="nav-link"
                             href="{{ route('admin.coupon.index') }}">Coupon</a></li>
+                    <li class="{{ setActiveSidebar(['admin.shipping-rule.*']) }}"><a class="nav-link"
+                            href="{{ route('admin.shipping-rule.index') }}">Shipping Rule</a></li>
                     <li class="{{ setActiveSidebar(['admin.vendor-profile.*']) }}"><a class="nav-link"
                             href="{{ route('admin.vendor-profile.index') }}">Vendor Profile</a></li>
                 </ul>
