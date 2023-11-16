@@ -1,9 +1,12 @@
 @extends('frontend.layouts.master')
+@section('title')
+    {{ $settings->site_name }} || Login
+@endsection
 
 @section('content')
     <!--============================
-                                         BREADCRUMB START
-                                    ==============================-->
+                                             BREADCRUMB START
+                                        ==============================-->
     <section id="wsus__breadcrumb">
         <div class="wsus_breadcrumb_overlay">
             <div class="container">
@@ -20,13 +23,13 @@
         </div>
     </section>
     <!--============================
-                                        BREADCRUMB END
-                                    ==============================-->
+                                            BREADCRUMB END
+                                        ==============================-->
 
 
     <!--============================
-                                       LOGIN/REGISTER PAGE START
-                                    ==============================-->
+                                           LOGIN/REGISTER PAGE START
+                                        ==============================-->
     <section id="wsus__login_register">
         <div class="container">
             <div class="row">
@@ -104,8 +107,8 @@
 
                                         <div class="wsus__login_input">
                                             <i class="fas fa-key"></i>
-                                            <input id="password_confirmation" type="password"
-                                                name="password_confirmation" placeholder="Confirm Password">
+                                            <input id="password_confirmation" type="password" name="password_confirmation"
+                                                placeholder="Confirm Password">
                                         </div>
                                         <button class="common_btn mt-4" type="submit">signup</button>
                                     </form>
@@ -118,6 +121,6 @@
         </div>
     </section>
     <!--============================
-                                       LOGIN/REGISTER PAGE END
-                                    ==============================-->
+                                           LOGIN/REGISTER PAGE END
+                                        ==============================-->
 @endsection

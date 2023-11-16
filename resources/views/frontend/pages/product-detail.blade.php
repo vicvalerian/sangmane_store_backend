@@ -1,5 +1,9 @@
 @extends('frontend.layouts.master')
 
+@section('title')
+    {{ $settings->site_name }} || Product Detail
+@endsection
+
 @section('content')
     {{-- <section class="product_popup_modal">
         <div class="modal fade" id="exampleModal2" tabindex="-1" aria-hidden="true">
