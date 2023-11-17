@@ -61,17 +61,21 @@
                             <form class="shopping-cart-form">
                                 <input type="hidden" name="product_id" value="{{ $item->product->id }}">
                                 @foreach ($item->product->product_variants as $variant)
-                                    <select class="d-none" name="variant_items[]">
-                                        @foreach ($variant->product_variant_items as $variantItem)
-                                            <option value="{{ $variantItem->id }}"
-                                                {{ $variantItem->is_default == 1 ? 'selected' : '' }}>
-                                                {{ $variantItem->name }} (
-                                                {{ $settings->currency_icon }}{{ $variantItem->price }} )
-                                            </option>
-                                        @endforeach
-                                        <input type="hidden" min="1" max="100" name="qty"
-                                            value="1" />
-                                    </select>
+                                    @if ($variant->status != 0)
+                                        <select class="d-none" name="variant_items[]">
+                                            @foreach ($variant->product_variant_items as $variantItem)
+                                                @if ($variantItem->status != 0)
+                                                @endif
+                                                <option value="{{ $variantItem->id }}"
+                                                    {{ $variantItem->is_default == 1 ? 'selected' : '' }}>
+                                                    {{ $variantItem->name }} (
+                                                    {{ $settings->currency_icon }}{{ $variantItem->price }} )
+                                                </option>
+                                            @endforeach
+                                            <input type="hidden" min="1" max="100" name="qty"
+                                                value="1" />
+                                        </select>
+                                    @endif
                                 @endforeach
                                 <button type="submit" class="add_cart">add to cart</button>
                             </form>
@@ -153,19 +157,23 @@
                                                 <input type="hidden" name="product_id"
                                                     value="{{ $item->product->id }}">
                                                 @foreach ($item->product->product_variants as $variant)
-                                                    <div class="col-xl-6 col-sm-6">
-                                                        <h5 class="mb-2">{{ $variant->name }}:</h5>
-                                                        <select class="select_2" name="variant_items[]">
-                                                            @foreach ($variant->product_variant_items as $variantItem)
-                                                                <option value="{{ $variantItem->id }}"
-                                                                    {{ $variantItem->is_default == 1 ? 'selected' : '' }}>
-                                                                    {{ $variantItem->name }} (
-                                                                    {{ $settings->currency_icon }}{{ $variantItem->price }}
-                                                                    )
-                                                                </option>
-                                                            @endforeach
-                                                        </select>
-                                                    </div>
+                                                    @if ($variant->status != 0)
+                                                        <div class="col-xl-6 col-sm-6">
+                                                            <h5 class="mb-2">{{ $variant->name }}:</h5>
+                                                            <select class="select_2" name="variant_items[]">
+                                                                @foreach ($variant->product_variant_items as $variantItem)
+                                                                    @if ($variantItem->status != 0)
+                                                                        <option value="{{ $variantItem->id }}"
+                                                                            {{ $variantItem->is_default == 1 ? 'selected' : '' }}>
+                                                                            {{ $variantItem->name }} (
+                                                                            {{ $settings->currency_icon }}{{ $variantItem->price }}
+                                                                            )
+                                                                        </option>
+                                                                    @endif
+                                                                @endforeach
+                                                            </select>
+                                                        </div>
+                                                    @endif
                                                 @endforeach
                                             </div>
                                         </div>
