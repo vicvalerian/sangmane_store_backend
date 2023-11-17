@@ -13,6 +13,19 @@ class CartController extends Controller
     public function addToCart(Request $request)
     {
         $product = Product::findOrFail($request->product_id);
+
+        if ($product->qty == 0) {
+            return response([
+                'status' => 'error',
+                'message' => 'Product out of stock!'
+            ]);
+        } else if ($product->qty < $request->qty) {
+            return response([
+                'status' => 'error',
+                'message' => 'Quantity not available in our stock!'
+            ]);
+        }
+
         $variants = [];
         $variantTotalAmount = 0;
 
@@ -61,6 +74,21 @@ class CartController extends Controller
 
     public function updateProductQty(Request $request)
     {
+        $productId = Cart::get($request->rowId)->id;
+        $product = Product::findOrFail($productId);
+
+        if ($product->qty == 0) {
+            return response([
+                'status' => 'error',
+                'message' => 'Product out of stock!'
+            ]);
+        } else if ($product->qty < $request->quantity) {
+            return response([
+                'status' => 'error',
+                'message' => 'Quantity not available in our stock!'
+            ]);
+        }
+
         Cart::update($request->rowId, $request->quantity);
         $productTotal = $this->getProductTotal($request->rowId);
 
@@ -118,8 +146,8 @@ class CartController extends Controller
     public function cartTotal()
     {
         $total = 0;
-        
-        foreach(Cart::content() as $product){
+
+        foreach (Cart::content() as $product) {
             $total += $this->getProductTotal($product->rowId);
         }
 
