@@ -1805,6 +1805,7 @@ PRODUCT MODAL VIEW END
 }
 
 .wsus__product_details .add_cart {
+    border-color: transparent;
     position: absolute;
     top: -30px;
     left: 0;
