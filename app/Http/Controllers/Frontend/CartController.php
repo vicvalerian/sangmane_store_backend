@@ -10,6 +10,17 @@ use Cart;
 
 class CartController extends Controller
 {
+    public function cartDetails()
+    {
+        $cartItems = Cart::content();
+
+        if(count($cartItems) == 0){
+            toastr('Please add some products to your cart first!', 'warning', 'Cart is empty!');
+            return redirect()->route('home');
+        }
+        return view('frontend.pages.cart-detail', compact('cartItems'));
+    }
+
     public function addToCart(Request $request)
     {
         $product = Product::findOrFail($request->product_id);
@@ -65,13 +76,6 @@ class CartController extends Controller
         ]);
     }
 
-    public function cartDetails()
-    {
-        $cartItems = Cart::content();
-
-        return view('frontend.pages.cart-detail', compact('cartItems'));
-    }
-
     public function updateProductQty(Request $request)
     {
         $productId = Cart::get($request->rowId)->id;
@@ -120,6 +124,7 @@ class CartController extends Controller
     {
         Cart::remove($rowId);
 
+        toastr('Product removed from cart!', 'success', 'Success');
         return redirect()->back();
     }
 
