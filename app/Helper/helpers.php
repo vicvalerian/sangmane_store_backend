@@ -55,3 +55,15 @@ function productType(string $type): string
             break;
     }
 }
+
+// get total cart amount
+function getCartTotal()
+{
+    $total = 0;
+
+    foreach (\Cart::content() as $product) {
+        $total += ($product->price + $product->options->variants_total) * $product->qty;
+    }
+
+    return $total;
+}
