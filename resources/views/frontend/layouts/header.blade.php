@@ -9,7 +9,7 @@
             <div class="col-xl-2 col-7 col-md-8 col-lg-2">
                 <div class="wsus_logo_area">
                     <a class="wsus__header_logo" href="index.html">
-                        <img src="{{asset('frontend/images/logo_2.png')}}" alt="logo" class="img-fluid w-100">
+                        <img src="{{ asset('frontend/images/logo_2.png') }}" alt="logo" class="img-fluid w-100">
                     </a>
                 </div>
             </div>
@@ -36,7 +36,7 @@
                         <li><a href="wishlist.html"><i class="fal fa-heart"></i><span>05</span></a></li>
                         <li><a href="compare.html"><i class="fal fa-random"></i><span>03</span></a></li>
                         <li><a class="wsus__cart_icon" href="#"><i
-                                    class="fal fa-shopping-bag"></i><span>04</span></a></li>
+                                    class="fal fa-shopping-bag"></i><span id="cart-count">{{ Cart::content()->count() }}</span></a></li>
                     </ul>
                 </div>
             </div>
@@ -98,7 +98,7 @@
         </ul>
         <h5>sub total <span>$3540</span></h5>
         <div class="wsus__minicart_btn_area">
-            <a class="common_btn" href="{{route('cart-details')}}">view cart</a>
+            <a class="common_btn" href="{{ route('cart-details') }}">view cart</a>
             <a class="common_btn" href="check_out.html">checkout</a>
         </div>
     </div>
