@@ -8,6 +8,7 @@ use App\Models\Order;
 use App\Models\OrderProduct;
 use App\Models\PaypalSetting;
 use App\Models\Product;
+use App\Models\RazorpaySetting;
 use App\Models\StripeSetting;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
@@ -16,6 +17,7 @@ use Illuminate\Support\Facades\Session;
 use Srmklive\PayPal\Services\PayPal as PayPalClient;
 use Stripe\Charge;
 use Stripe\Stripe;
+use Razorpay\Api\Api;
 
 class PaymentController extends Controller
 {
@@ -192,7 +194,7 @@ class PaymentController extends Controller
         $stripeSetting = StripeSetting::first();
         $total = getFinalPayableAmount();
         $payableAmount = round($total * $stripeSetting->currency_rate, 2);
-        
+
         Stripe::setApiKey($stripeSetting->secret_key);
         $response = Charge::create([
             "amount" => $payableAmount * 100,
@@ -210,6 +212,35 @@ class PaymentController extends Controller
         } else {
             toastr('Someting went wrong try again later!', 'error', 'Error');
             return redirect()->route('user.payment');
+        }
+    }
+
+    public function payWithRazorpay(Request $request)
+    {
+        $razorPaySetting = RazorpaySetting::first();
+        $api = new Api($razorPaySetting->razorpay_key, $razorPaySetting->razorpay_secret_key);
+
+        // amount calculation
+        $total = getFinalPayableAmount();
+        $payableAmount = round($total * $razorPaySetting->currency_rate, 2);
+        $payableAmountInPaisa = $payableAmount * 100;
+
+        if ($request->has('razorpay_payment_id') && $request->filled('razorpay_payment_id')) {
+            try {
+                $response = $api->payment->fetch($request->razorpay_payment_id)
+                    ->capture(['amount' => $payableAmountInPaisa]);
+            } catch (\Exception $e) {
+                toastr($e->getMessage(), 'error', 'Error');
+                return redirect()->back();
+            }
+
+            if ($response['status'] == 'captured') {
+                $this->storeOrder('razorpay', 1, $response['id'], $payableAmount, $razorPaySetting->currency_name);
+                // clear session
+                $this->clearSession();
+
+                return redirect()->route('user.payment.success');
+            }
         }
     }
 }
