@@ -37,6 +37,9 @@
                                 <button class="nav-link common_btn" id="v-pills-profile-tab" data-bs-toggle="pill"
                                     data-bs-target="#v-pills-stripe" type="button" role="tab"
                                     aria-controls="v-pills-stripe" aria-selected="false">stripe</button>
+                                <button class="nav-link common_btn" id="v-pills-profile-tab" data-bs-toggle="pill"
+                                    data-bs-target="#v-pills-razorpay" type="button" role="tab"
+                                    aria-controls="v-pills-stripe" aria-selected="false">razorPay</button>
                             </div>
                         </div>
                     </div>
@@ -100,30 +103,17 @@
                                 </div>
                             </div>
                             @include('frontend.pages.payment-gateway.stripe')
-                            {{-- <div class="tab-pane fade" id="v-pills-profile" role="tabpanel"
-                                aria-labelledby="v-pills-profile-tab">
-                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero, tempora cum optio
-                                    cumque rerum dolor impedit exercitationem? Eveniet suscipit repellat, quae natus hic
-                                    assumenda consequatur excepturi ducimus.</p>
-                                <ul>
-                                    <li>Natus hic assumenda consequatur excepturi ducimu.</li>
-                                    <li>Cumque rerum dolor impedit exercitationem Eveniet suscipit repellat.</li>
-                                    <li>Dolor sit amet consectetur adipisicing elit tempora cum .</li>
-                                    <li>Orem ipsum dolor sit amet consectetur adipisicing elit asperiores.</li>
-                                </ul>
-                                <form class="wsus__input_area">
-                                    <input type="text" placeholder="Enter Something">
-                                    <textarea cols="3" rows="4" placeholder="Enter Something"></textarea>
-                                    <select class="select_2" name="state">
-                                        <option>default select</option>
-                                        <option>short by rating</option>
-                                        <option>short by latest</option>
-                                        <option>low to high </option>
-                                        <option>high to low</option>
-                                    </select>
-                                    <button type="submit" class="common_btn mt-4">confirm</button>
-                                </form>
-                            </div> --}}
+                            <div class="tab-pane fade show" id="v-pills-razorpay" role="tabpanel"
+                                aria-labelledby="v-pills-home-tab">
+                                <div class="row">
+                                    <div class="col-xl-12 m-auto">
+                                        <div class="wsus__payment_area">
+                                            <a href="{{ route('user.paypal.payment') }}"
+                                                class="nav-link common_btn text-center">Pay with RazorPay</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="col-xl-4 col-lg-4">
