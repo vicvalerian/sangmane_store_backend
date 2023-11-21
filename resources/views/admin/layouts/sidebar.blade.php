@@ -117,6 +117,8 @@
                 <ul class="dropdown-menu">
                     <li class="{{ setActiveSidebar(['admin.slider.*']) }}"><a class="nav-link"
                             href="{{ route('admin.slider.index') }}">Slider</a></li>
+                    <li class="{{ setActiveSidebar(['admin.home-page-setting.*']) }}"><a class="nav-link"
+                            href="{{ route('admin.home-page-setting.index') }}">Home Page Setting</a></li>
                 </ul>
             </li>
             <li class="{{ setActiveSidebar(['admin.setting.*']) }}"><a class="nav-link"
