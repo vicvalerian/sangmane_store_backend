@@ -28,6 +28,41 @@
             </li>
             <li
                 class="dropdown {{ setActiveSidebar([
+                    'admin.order.*',
+                    'admin.pending-order',
+                    'admin.processed-order',
+                    'admin.dropped-off-order',
+                    'admin.shipped-order',
+                    'admin.out-for-delivery-order',
+                    'admin.delivered-order',
+                    'admin.canceled-order',
+                ]) }}">
+                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i>
+                    <span>Orders</span></a>
+                <ul class="dropdown-menu">
+                    <li class="{{ setActiveSidebar(['admin.order.*']) }}"><a class="nav-link"
+                            href="{{ route('admin.order.index') }}">All Order</a></li>
+                    <li class="{{ setActiveSidebar(['admin.pending-order']) }}"><a class="nav-link"
+                            href="{{ route('admin.pending-order') }}">Pending Order</a></li>
+                    <li class="{{ setActiveSidebar(['admin.processed-order']) }}"><a class="nav-link"
+                            href="{{ route('admin.processed-order') }}">Processed Order</a></li>
+                    <li class="{{ setActiveSidebar(['admin.dropped-off-order']) }}"><a class="nav-link"
+                            href="{{ route('admin.dropped-off-order') }}">Dropped Off Order</a></li>
+                    <li class="{{ setActiveSidebar(['admin.shipped-order']) }}"><a class="nav-link"
+                            href="{{ route('admin.shipped-order') }}">Shipped Order</a></li>
+                    <li class="{{ setActiveSidebar(['admin.out-for-delivery-order']) }}"><a class="nav-link"
+                            href="{{ route('admin.out-for-delivery-order') }}">Out For Delivery Order</a></li>
+                    <li class="{{ setActiveSidebar(['admin.delivered-order']) }}"><a class="nav-link"
+                            href="{{ route('admin.delivered-order') }}">Delivered Order</a></li>
+                    <li class="{{ setActiveSidebar(['admin.canceled-order']) }}"><a class="nav-link"
+                            href="{{ route('admin.canceled-order') }}">Canceled Order</a></li>
+                </ul>
+            </li>
+            <li class="{{ setActiveSidebar(['admin.transaction.*']) }}"><a class="nav-link"
+                    href="{{ route('admin.transaction.index') }}"><i class="far fa-square"></i>
+                    <span>Transaction</span></a></li>
+            <li
+                class="dropdown {{ setActiveSidebar([
                     'admin.brand.*',
                     'admin.product.*',
                     'admin.product-image-gallery.*',
@@ -76,7 +111,8 @@
                 </ul>
             </li>
             <li class="dropdown {{ setActiveSidebar(['admin.slider.*']) }}">
-                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i>
+                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i
+                        class="fas fa-columns"></i>
                     <span>Manage Website</span></a>
                 <ul class="dropdown-menu">
                     <li class="{{ setActiveSidebar(['admin.slider.*']) }}"><a class="nav-link"
