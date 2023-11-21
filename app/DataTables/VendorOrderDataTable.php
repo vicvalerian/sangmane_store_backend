@@ -123,10 +123,7 @@ class VendorOrderDataTable extends DataTable
             Column::make('amount'),
             Column::make('order_status'),
             Column::make('payment_status'),
-
             Column::make('payment_method'),
-
-
             Column::computed('action')
                 ->exportable(false)
                 ->printable(false)

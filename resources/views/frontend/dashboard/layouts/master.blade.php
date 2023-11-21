@@ -31,6 +31,9 @@
 
     {{-- Toastr --}}
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+
+    {{-- Jquery DataTable --}}
+    <link rel="stylesheet" href="//cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
 </head>
 
 <body>
@@ -111,6 +114,9 @@
     {{-- Toastr --}}
     <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
+    {{-- Jquery DataTable --}}
+    <script src="//cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+
     <!--Sweetalert js-->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
@@ -175,6 +181,7 @@
             })
         })
     </script>
+    @stack('scripts')
 </body>
 
 </html>
