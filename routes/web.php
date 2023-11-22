@@ -11,6 +11,7 @@ use App\Http\Controllers\Frontend\UserAddressController;
 use App\Http\Controllers\Frontend\UserDashboardController;
 use App\Http\Controllers\Frontend\UserOrderController;
 use App\Http\Controllers\Frontend\UserProfileController;
+use App\Http\Controllers\Frontend\WishlistController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -91,4 +92,9 @@ Route::group(['middleware' => ['auth', 'verified'], 'prefix' => 'user', 'as' => 
     // Order Route
     Route::get('order', [UserOrderController::class, 'index'])->name('order.index');
     Route::get('order/show/{id}', [UserOrderController::class, 'show'])->name('order.show');
+
+    // Wishlist Route
+    Route::get('wishlist', [WishlistController::class, 'index'])->name('wishlist.index');
+    Route::get('wishlist/add-product', [WishlistController::class, 'addToWishlist'])->name('wishlist.store');
+    Route::get('wishlist/remove-product/{id}', [WishlistController::class, 'destroy'])->name('wishlist.destroy');
 });

@@ -38,7 +38,8 @@
                                             data-bs-target="#exampleModal-{{ $product->id }}"><i
                                                 class="far fa-eye"></i></a>
                                     </li>
-                                    <li><a href="#"><i class="far fa-heart"></i></a></li>
+                                    <li><a href="#" class="add_to_wishlist" data-id="{{ $product->id }}"><i
+                                                class="far fa-heart"></i></a></li>
                                     <li><a href="#"><i class="far fa-random"></i></a>
                                 </ul>
                                 <div class="wsus__product_details">
@@ -114,8 +115,7 @@
                             <div class="col-12">
                                 <div class="wsus__single_banner_content single_banner_2">
                                     <div class="wsus__single_banner_img">
-                                        <img src="images/single_banner_55.jpg" alt="banner"
-                                            class="img-fluid w-100">
+                                        <img src="images/single_banner_55.jpg" alt="banner" class="img-fluid w-100">
                                     </div>
                                     <div class="wsus__single_banner_text">
                                         <h6>New Collection</h6>
@@ -127,8 +127,7 @@
                             <div class="col-12 mt-lg-4">
                                 <div class="wsus__single_banner_content">
                                     <div class="wsus__single_banner_img">
-                                        <img src="images/single_banner_66.jpg" alt="banner"
-                                            class="img-fluid w-100">
+                                        <img src="images/single_banner_66.jpg" alt="banner" class="img-fluid w-100">
                                     </div>
                                     <div class="wsus__single_banner_text">
                                         <h6>sell on <span>42% off</span></h6>
