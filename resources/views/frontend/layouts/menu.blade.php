@@ -50,7 +50,7 @@
                                 @endif
                             </li>
                         @endforeach
-                        <li><a href="#"><i class="fal fa-gem"></i> View All Categories</a></li>
+                        {{-- <li><a href="#"><i class="fal fa-gem"></i> View All Categories</a></li> --}}
                     </ul>
 
                     <ul class="wsus__menu_item">
