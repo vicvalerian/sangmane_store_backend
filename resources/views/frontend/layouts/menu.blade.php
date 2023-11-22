@@ -25,17 +25,22 @@
 
                         @foreach ($categories as $category)
                             <li><a class="{{ count($category->sub_categories) > 0 ? 'wsus__droap_arrow' : '' }}"
-                                    href="#"><i class="{{ $category->icon }}"></i>
+                                    href="{{ route('products.index', ['category' => $category->slug]) }}"><i
+                                        class="{{ $category->icon }}"></i>
                                     {{ $category->name }} </a>
                                 @if (count($category->sub_categories) > 0)
                                     <ul class="wsus_menu_cat_droapdown">
                                         @foreach ($category->sub_categories as $sub_category)
-                                            <li><a href="#">{{ $sub_category->name }} <i
+                                            <li><a
+                                                    href="{{ route('products.index', ['sub_category' => $sub_category->slug]) }}">{{ $sub_category->name }}
+                                                    <i
                                                         class="{{ count($sub_category->child_categories) > 0 ? 'fas fa-angle-right' : '' }}"></i></a>
                                                 @if (count($sub_category->child_categories) > 0)
                                                     <ul class="wsus__sub_category">
                                                         @foreach ($sub_category->child_categories as $child_category)
-                                                            <li><a href="#">{{ $child_category->name }}</a> </li>
+                                                            <li><a
+                                                                    href="{{ route('products.index', ['child_category' => $child_category->slug]) }}">{{ $child_category->name }}</a>
+                                                            </li>
                                                         @endforeach
                                                     </ul>
                                                 @endif
@@ -49,7 +54,7 @@
                     </ul>
 
                     <ul class="wsus__menu_item">
-                        <li><a class="active" href="{{url('/')}}">home</a></li>
+                        <li><a class="active" href="{{ url('/') }}">home</a></li>
                         <li><a href="product_grid_view.html">shop <i class="fas fa-caret-down"></i></a>
                             <div class="wsus__mega_menu">
                                 <div class="row">
@@ -179,7 +184,9 @@
                 <div class="accordion accordion-flush" id="accordionFlushExample">
                     <ul class="wsus_mobile_menu_category">
                         @foreach ($categories as $category)
-                            <li><a href="#" class="{{count($category->sub_categories) > 0 ? 'accordion-button' : ''}} collapsed" data-bs-toggle="collapse"
+                            <li><a href="#"
+                                    class="{{ count($category->sub_categories) > 0 ? 'accordion-button' : '' }} collapsed"
+                                    data-bs-toggle="collapse"
                                     data-bs-target="#flush-collapseThreew-{{ $loop->index }}" aria-expanded="false"
                                     aria-controls="flush-collapseThreew-{{ $loop->index }}"><i
                                         class="{{ $category->icon }}"></i>
