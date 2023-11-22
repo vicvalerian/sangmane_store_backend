@@ -159,12 +159,18 @@
     <span class="wsus__mobile_menu_close"><i class="fal fa-times"></i></span>
     <ul class="wsus__mobile_menu_header_icon d-inline-flex">
 
-        <li><a href="wishlist.html"><i class="far fa-heart"></i> <span>2</span></a></li>
+        <li><a href="{{ route('user.wishlist.index') }}"><i class="fal fa-heart"></i><span id="wishlist_count">
+                    @if (auth()->check())
+                        {{ \App\Models\Wishlist::where('user_id', auth()->user()->id)->count() }}
+                    @else
+                        0
+                    @endif
+                </span></a></li>
 
-        <li><a href="compare.html"><i class="far fa-random"></i> </i><span>3</span></a></li>
+        {{-- <li><a href="compare.html"><i class="far fa-random"></i> </i><span>3</span></a></li> --}}
     </ul>
-    <form>
-        <input type="text" placeholder="Search">
+    <form action="{{ route('products.index') }}">
+        <input type="text" placeholder="Search" name="search" value="{{ request()->search }}">
         <button type="submit"><i class="far fa-search"></i></button>
     </form>
 
