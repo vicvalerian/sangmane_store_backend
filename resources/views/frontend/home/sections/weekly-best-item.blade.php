@@ -19,18 +19,21 @@
                         $category = \App\Models\Category::findOrFail($lastKey['category']);
                         $products = \App\Models\Product::where('category_id', $category->id)
                             ->take(6)
+                            ->where(['status' => 1, 'is_approved' => 1])
                             ->orderBy('id', 'desc')
                             ->get();
                     } elseif (array_keys($lastKey)[0] == 'sub_category') {
                         $category = \App\Models\SubCategory::findOrFail($lastKey['sub_category']);
                         $products = \App\Models\Product::where('sub_category_id', $category->id)
                             ->take(6)
+                            ->where(['status' => 1, 'is_approved' => 1])
                             ->orderBy('id', 'desc')
                             ->get();
                     } else {
                         $category = \App\Models\ChildCategory::findOrFail($lastKey['child_category']);
                         $products = \App\Models\Product::where('child_category_id', $category->id)
                             ->take(6)
+                            ->where(['status' => 1, 'is_approved' => 1])
                             ->orderBy('id', 'desc')
                             ->get();
                     }

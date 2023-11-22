@@ -63,7 +63,7 @@ class CartController extends Controller
         $cartData = [];
         $cartData['id'] = $product->id;
         $cartData['name'] = $product->name;
-        $cartData['qty'] = $request->qty;
+        $cartData['qty'] = $request->qty ?? 1;
         $cartData['price'] = $productPrice;
         $cartData['weight'] = 10;
         $cartData['options']['variants'] = $variants;
