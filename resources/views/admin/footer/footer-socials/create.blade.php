@@ -40,7 +40,7 @@
                                         <option value="0">Inactive</option>
                                     </select>
                                 </div>
-                                <button type="submmit" class="btn btn-primary">Create</button>
+                                <button type="submmit" class="btn btn-primary">Save</button>
                             </form>
                         </div>
                     </div>

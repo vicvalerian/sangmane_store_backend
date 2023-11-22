@@ -8,46 +8,39 @@
         </div>
 
         <div class="section-body">
+
             <div class="row">
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4>Update Footer Social</h4>
+                            <h4>Create Footer Grid Two Item</h4>
                         </div>
                         <div class="card-body">
-                            <form action="{{ route('admin.footer-social.update', $footer->id) }}" method="POST">
+                            <form action="{{ route('admin.footer-grid-two.store') }}" method="POST">
                                 @csrf
-                                @method('PUT')
-                                <div class="form-group">
-                                    <label>Icon</label>
-                                    <div>
-                                        <button class="btn btn-primary" data-icon="{{ $footer->icon }}"
-                                            data-selected-class="btn-danger" data-unselected-class="btn-info"
-                                            role="iconpicker" name="icon"></button>
-                                    </div>
-                                </div>
                                 <div class="form-group">
                                     <label>Name</label>
-                                    <input type="text" class="form-control" name="name" value="{{ $footer->name }}">
+                                    <input type="text" class="form-control" name="name" value="">
                                 </div>
                                 <div class="form-group">
                                     <label>Url</label>
-                                    <input type="text" class="form-control" name="url" value="{{ $footer->url }}">
+                                    <input type="text" class="form-control" name="url" value="">
                                 </div>
                                 <div class="form-group">
                                     <label for="inputState">Status</label>
                                     <select id="inputState" class="form-control" name="status">
-                                        <option {{ $footer->status === 1 ? 'selected' : '' }} value="1">Active</option>
-                                        <option {{ $footer->status === 0 ? 'selected' : '' }} value="0">Inactive
-                                        </option>
+                                        <option value="1">Active</option>
+                                        <option value="0">Inactive</option>
                                     </select>
                                 </div>
                                 <button type="submmit" class="btn btn-primary">Save</button>
                             </form>
                         </div>
+
                     </div>
                 </div>
             </div>
+
         </div>
     </section>
 @endsection

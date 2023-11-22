@@ -121,7 +121,8 @@
                             href="{{ route('admin.home-page-setting.index') }}">Home Page Setting</a></li>
                 </ul>
             </li>
-            <li class="dropdown {{ setActiveSidebar(['admin.footer-info.index', 'admin.footer-social.*']) }}">
+            <li
+                class="dropdown {{ setActiveSidebar(['admin.footer-info.index', 'admin.footer-social.*', 'admin.footer-grid-two.*']) }}">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i
                         class="fas fa-columns"></i>
                     <span>Footer</span></a>
@@ -130,6 +131,8 @@
                             href="{{ route('admin.footer-info.index') }}">Footer Info</a></li>
                     <li class="{{ setActiveSidebar(['admin.footer-social.*']) }}"><a class="nav-link"
                             href="{{ route('admin.footer-social.index') }}">Footer Social</a></li>
+                    <li class="{{ setActiveSidebar(['admin.footer-grid-two.*']) }}"><a class="nav-link"
+                            href="{{ route('admin.footer-grid-two.index') }}">Footer Grid Two</a></li>
                 </ul>
             </li>
             <li class="{{ setActiveSidebar(['admin.setting.*']) }}"><a class="nav-link"
