@@ -99,6 +99,7 @@ Route::delete('flash-sale/{id}', [FlashSaleController::class, 'destroy'])->name(
 //Setting Route
 Route::get('setting', [SettingController::class, 'index'])->name('setting.index');
 Route::put('general-setting-update', [SettingController::class, 'updateGeneralSetting'])->name('general-setting-update');
+Route::put('email-setting-update', [SettingController::class, 'emailConfigSettingUpdate'])->name('email-setting-update');
 
 //Coupon Route
 Route::put('coupon/change-status', [CouponController::class, 'changeStatus'])->name('coupon.change-status');
