@@ -146,7 +146,7 @@
                         <li><a href="{{ route('about') }}">about</a></li>
                     </ul>
                     <ul class="wsus__menu_item wsus__menu_item_right">
-                        <li><a href="contact.html">contact</a></li>
+                        <li><a href="{{ route('contact') }}">contact</a></li>
                         <li><a href="dsahboard.html">my account</a></li>
                         <li><a href="{{ route('login') }}">login</a></li>
                     </ul>

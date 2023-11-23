@@ -22,6 +22,20 @@
                         value="{{ @$generalSetting->contact_email }}">
                 </div>
                 <div class="form-group">
+                    <label>Contact Phone</label>
+                    <input type="text" class="form-control" name="contact_phone"
+                        value="{{ @$generalSetting->contact_phone }}">
+                </div>
+                <div class="form-group">
+                    <label>Contact Address</label>
+                    <input type="text" class="form-control" name="contact_address"
+                        value="{{ @$generalSetting->contact_address }}">
+                </div>
+                <div class="form-group">
+                    <label>Google Map Url</label>
+                    <input type="text" class="form-control" name="map" value="{{ @$generalSetting->map }}">
+                </div>
+                <div class="form-group">
                     <label>Default Currency Name</label>
                     <select id="" class="form-control select2" name="currency_name">
                         <option value="">Select</option>
