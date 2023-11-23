@@ -143,6 +143,7 @@
                         </li>
                         <li><a href="track_order.html">track order</a></li>
                         <li><a href="daily_deals.html">daily deals</a></li>
+                        <li><a href="{{ route('about') }}">about</a></li>
                     </ul>
                     <ul class="wsus__menu_item wsus__menu_item_right">
                         <li><a href="contact.html">contact</a></li>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Backend\AboutController;
 use App\Http\Controllers\Backend\AdminController;
 use App\Http\Controllers\Backend\AdminReviewController;
 use App\Http\Controllers\Backend\AdminVendorProfileController;
@@ -31,6 +32,7 @@ use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Backend\StripeSettingController;
 use App\Http\Controllers\Backend\SubCategoryController;
 use App\Http\Controllers\Backend\SubscriberController;
+use App\Http\Controllers\Backend\TermAndConditionController;
 use App\Http\Controllers\Backend\TransactionController;
 use App\Http\Controllers\Backend\VendorConditionController;
 use App\Http\Controllers\Backend\VendorListController;
@@ -193,3 +195,11 @@ Route::put('vendor-list/status-change', [VendorListController::class, 'changeSta
 // Vendor Condition Route
 Route::get('vendor-condition', [VendorConditionController::class, 'index'])->name('vendor-condition.index');
 Route::put('vendor-condition/update', [VendorConditionController::class, 'update'])->name('vendor-condition.update');
+
+// About Route
+Route::get('about', [AboutController::class, 'index'])->name('about.index');
+Route::put('about/update', [AboutController::class, 'update'])->name('about.update');
+
+// Terms and Condition Route
+Route::get('term-and-condition', [TermAndConditionController::class, 'index'])->name('term-and-condition.index');
+Route::put('term-and-condition/update', [TermAndConditionController::class, 'update'])->name('term-and-condition.update');
