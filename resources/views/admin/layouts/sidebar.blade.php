@@ -160,7 +160,12 @@
                 </ul>
             </li>
             <li
-                class="dropdown {{ setActiveSidebar(['admin.vendor-request.*', 'admin.customer.*', 'admin.vendor-list.*']) }}">
+                class="dropdown {{ setActiveSidebar([
+                    'admin.vendor-request.*',
+                    'admin.customer.*',
+                    'admin.vendor-list.*',
+                    'admin.manage-user.*',
+                ]) }}">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i
                         class="fas fa-columns"></i>
                     <span>Users</span></a>
@@ -171,6 +176,8 @@
                             href="{{ route('admin.vendor-list.index') }}">Vendor List</a></li>
                     <li class="{{ setActiveSidebar(['admin.vendor-request.index']) }}"><a class="nav-link"
                             href="{{ route('admin.vendor-request.index') }}">Pending Vendor</a></li>
+                    <li class="{{ setActiveSidebar(['admin.manage-user.index']) }}"><a class="nav-link"
+                            href="{{ route('admin.manage-user.index') }}">Manage User</a></li>
                 </ul>
             </li>
             <li class="{{ setActiveSidebar(['admin.advertisement.*']) }}"><a class="nav-link"
