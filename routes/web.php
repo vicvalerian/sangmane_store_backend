@@ -9,6 +9,7 @@ use App\Http\Controllers\Frontend\FrontendProductController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\NewsLetterController;
 use App\Http\Controllers\Frontend\PageController;
+use App\Http\Controllers\Frontend\ProductTrackController;
 use App\Http\Controllers\Frontend\ReviewController;
 use App\Http\Controllers\Frontend\UserAddressController;
 use App\Http\Controllers\Frontend\UserDashboardController;
@@ -80,6 +81,9 @@ Route::get('terms-and-conditions', [PageController::class, 'termsAndCondition'])
 // Contact Route
 Route::get('contact', [PageController::class, 'contact'])->name('contact');
 Route::post('contact', [PageController::class, 'handleContactForm'])->name('handle-contact-form');
+
+// Product Track Route
+Route::get('product-track', [ProductTrackController::class, 'index'])->name('product-track.index');
 
 //User Routes
 Route::group(['middleware' => ['auth', 'verified'], 'prefix' => 'user', 'as' => 'user.'], function () {

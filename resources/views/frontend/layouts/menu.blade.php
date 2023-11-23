@@ -141,7 +141,7 @@
                                 <li><a href="brands.html">brands</a></li>
                             </ul>
                         </li>
-                        <li><a href="track_order.html">track order</a></li>
+                        <li><a href="{{ route('product-track.index') }}">track order</a></li>
                         <li><a href="daily_deals.html">daily deals</a></li>
                         <li><a href="{{ route('about') }}">about</a></li>
                     </ul>
@@ -259,7 +259,7 @@
                                 </div>
                             </div>
                         </li>
-                        <li><a href="track_order.html">track order</a></li>
+                        <li><a href="{{ route('product-track.index') }}">track order</a></li>
                         <li><a href="daily_deals.html">daily deals</a></li>
                     </ul>
                 </div>
