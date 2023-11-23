@@ -114,7 +114,8 @@
                             href="{{ route('admin.payment-setting.index') }}">Payment Setting</a></li>
                 </ul>
             </li>
-            <li class="dropdown {{ setActiveSidebar(['admin.slider.*']) }}">
+            <li
+                class="dropdown {{ setActiveSidebar(['admin.slider.*', 'admin.home-page-setting.*', 'admin.vendor-condition.*']) }}">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i
                         class="fas fa-columns"></i>
                     <span>Manage Website</span></a>
@@ -123,6 +124,8 @@
                             href="{{ route('admin.slider.index') }}">Slider</a></li>
                     <li class="{{ setActiveSidebar(['admin.home-page-setting.*']) }}"><a class="nav-link"
                             href="{{ route('admin.home-page-setting.index') }}">Home Page Setting</a></li>
+                    <li class="{{ setActiveSidebar(['admin.vendor-condition.index']) }}"><a class="nav-link"
+                            href="{{ route('admin.vendor-condition.index') }}">Vendor Condition</a></li>
                 </ul>
             </li>
             <li
