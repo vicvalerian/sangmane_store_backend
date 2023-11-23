@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Backend\AdminController;
+use App\Http\Controllers\Backend\AdminReviewController;
 use App\Http\Controllers\Backend\AdminVendorProfileController;
 use App\Http\Controllers\Backend\AdvertisementController;
 use App\Http\Controllers\Backend\BrandController;
@@ -167,3 +168,7 @@ Route::put('advertisement/homepage-banner-section-three', [AdvertisementControll
 Route::put('advertisement/homepage-banner-section-four', [AdvertisementController::class, 'homepageBannerSectionFour'])->name('homepage-banner-section-four');
 Route::put('advertisement/productpage-banner', [AdvertisementController::class, 'productPageBanner'])->name('productpage-banner');
 Route::put('advertisement/cartpage-banner', [AdvertisementController::class, 'cartPageBanner'])->name('cartpage-banner');
+
+// Product Review Route
+Route::get('review', [AdminReviewController::class, 'index'])->name('review.index');
+Route::put('review/change-status', [AdminReviewController::class, 'changeStatus'])->name('review.change-status');

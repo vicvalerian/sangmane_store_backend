@@ -82,6 +82,7 @@
                             'admin.product-image-gallery.*',
                             'admin.product-variant.*',
                             'admin.product-variant-item.*',
+                            'admin.review.*',
                         ]) }}">
                         <a class="nav-link" href="{{ route('admin.product.index') }}">Product</a>
                     <li class="{{ setActiveSidebar(['admin.seller-product.*']) }}">
@@ -90,6 +91,9 @@
                     <li class="{{ setActiveSidebar(['admin.seller-pending-product.index']) }}">
                         <a class="nav-link" href="{{ route('admin.seller-pending-product.index') }}">Seller Pending
                             Product</a>
+                    </li>
+                    <li class="{{ setActiveSidebar(['admin.review.index']) }}">
+                        <a class="nav-link" href="{{ route('admin.review.index') }}">Product Review</a>
                     </li>
                 </ul>
             </li>
