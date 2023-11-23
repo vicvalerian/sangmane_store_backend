@@ -165,6 +165,7 @@
                     'admin.customer.*',
                     'admin.vendor-list.*',
                     'admin.manage-user.*',
+                    'admin.admin-list.*',
                 ]) }}">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i
                         class="fas fa-columns"></i>
@@ -176,6 +177,8 @@
                             href="{{ route('admin.vendor-list.index') }}">Vendor List</a></li>
                     <li class="{{ setActiveSidebar(['admin.vendor-request.index']) }}"><a class="nav-link"
                             href="{{ route('admin.vendor-request.index') }}">Pending Vendor</a></li>
+                    <li class="{{ setActiveSidebar(['admin.admin-list.index']) }}"><a class="nav-link"
+                            href="{{ route('admin.admin-list.index') }}">Admin List</a></li>
                     <li class="{{ setActiveSidebar(['admin.manage-user.index']) }}"><a class="nav-link"
                             href="{{ route('admin.manage-user.index') }}">Manage User</a></li>
                 </ul>

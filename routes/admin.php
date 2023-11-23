@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Backend\AboutController;
 use App\Http\Controllers\Backend\AdminController;
+use App\Http\Controllers\Backend\AdminListController;
 use App\Http\Controllers\Backend\AdminReviewController;
 use App\Http\Controllers\Backend\AdminVendorProfileController;
 use App\Http\Controllers\Backend\AdvertisementController;
@@ -208,3 +209,8 @@ Route::put('term-and-condition/update', [TermAndConditionController::class, 'upd
 // Manage User Route
 Route::get('manage-user', [ManageUserController::class, 'index'])->name('manage-user.index');
 Route::post('manage-user', [ManageUserController::class, 'create'])->name('manage-user.create');
+
+// Admin List Route
+Route::get('admin-list', [AdminListController::class, 'index'])->name('admin-list.index');
+Route::put('admin-list/status-change', [AdminListController::class, 'changeStatus'])->name('admin-list.status-change');
+Route::delete('admin-list/{id}', [AdminListController::class, 'destroy'])->name('admin-list.destroy');
