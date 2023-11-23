@@ -289,7 +289,8 @@
                                 </li>
                             </ul>
                             <div class="wsus__det_sidebar_banner">
-                                <img src="images/blog_1.jpg" alt="banner" class="img-fluid w-100">
+                                <img src="{{ asset('frontend/images/blog_1.jpg') }}" alt="banner"
+                                    class="img-fluid w-100">
                                 <div class="wsus__det_sidebar_banner_text_overlay">
                                     <div class="wsus__det_sidebar_banner_text">
                                         <p>Black Friday Sale</p>

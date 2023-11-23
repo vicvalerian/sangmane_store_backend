@@ -142,6 +142,9 @@
                             href="{{ route('admin.footer-grid-three.index') }}">Footer Grid Three</a></li>
                 </ul>
             </li>
+            <li class="{{ setActiveSidebar(['admin.advertisement.*']) }}"><a class="nav-link"
+                    href="{{ route('admin.advertisement.index') }}"><i class="far fa-square"></i>
+                    <span>Advertisement</span></a></li>
             <li class="{{ setActiveSidebar(['admin.subscriber.*']) }}"><a class="nav-link"
                     href="{{ route('admin.subscriber.index') }}"><i class="far fa-square"></i>
                     <span>Subscribers</span></a></li>
