@@ -147,12 +147,16 @@
                 </ul>
             </li>
             <li
-                class="dropdown {{ setActiveSidebar(['admin.vendor-request.*']) }}">
+                class="dropdown {{ setActiveSidebar(['admin.vendor-request.*', 'admin.customer.*', 'admin.vendor-list.*']) }}">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i
                         class="fas fa-columns"></i>
                     <span>Users</span></a>
                 <ul class="dropdown-menu">
-                    <li class="{{ setActiveSidebar(['admin.footer-info.index']) }}"><a class="nav-link"
+                    <li class="{{ setActiveSidebar(['admin.customer.index']) }}"><a class="nav-link"
+                            href="{{ route('admin.customer.index') }}">Customer List</a></li>
+                    <li class="{{ setActiveSidebar(['admin.vendor-list.index']) }}"><a class="nav-link"
+                            href="{{ route('admin.vendor-list.index') }}">Vendor List</a></li>
+                    <li class="{{ setActiveSidebar(['admin.vendor-request.index']) }}"><a class="nav-link"
                             href="{{ route('admin.vendor-request.index') }}">Pending Vendor</a></li>
                 </ul>
             </li>
