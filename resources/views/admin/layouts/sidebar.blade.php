@@ -146,6 +146,16 @@
                             href="{{ route('admin.footer-grid-three.index') }}">Footer Grid Three</a></li>
                 </ul>
             </li>
+            <li
+                class="dropdown {{ setActiveSidebar(['admin.vendor-request.*']) }}">
+                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i
+                        class="fas fa-columns"></i>
+                    <span>Users</span></a>
+                <ul class="dropdown-menu">
+                    <li class="{{ setActiveSidebar(['admin.footer-info.index']) }}"><a class="nav-link"
+                            href="{{ route('admin.vendor-request.index') }}">Pending Vendor</a></li>
+                </ul>
+            </li>
             <li class="{{ setActiveSidebar(['admin.advertisement.*']) }}"><a class="nav-link"
                     href="{{ route('admin.advertisement.index') }}"><i class="far fa-square"></i>
                     <span>Advertisement</span></a></li>

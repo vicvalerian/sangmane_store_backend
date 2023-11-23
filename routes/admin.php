@@ -31,6 +31,7 @@ use App\Http\Controllers\Backend\StripeSettingController;
 use App\Http\Controllers\Backend\SubCategoryController;
 use App\Http\Controllers\Backend\SubscriberController;
 use App\Http\Controllers\Backend\TransactionController;
+use App\Http\Controllers\Backend\VendorRequestController;
 use Illuminate\Support\Facades\Route;
 
 //Admin Routes
@@ -172,3 +173,8 @@ Route::put('advertisement/cartpage-banner', [AdvertisementController::class, 'ca
 // Product Review Route
 Route::get('review', [AdminReviewController::class, 'index'])->name('review.index');
 Route::put('review/change-status', [AdminReviewController::class, 'changeStatus'])->name('review.change-status');
+
+// Vendor Request Route
+Route::get('vendor-request', [VendorRequestController::class, 'index'])->name('vendor-request.index');
+Route::get('vendor-request/{id}/show', [VendorRequestController::class, 'show'])->name('vendor-request.show');
+Route::put('vendor-request/{id}/change-status', [VendorRequestController::class, 'changeStatus'])->name('vendor-request.change-status');
