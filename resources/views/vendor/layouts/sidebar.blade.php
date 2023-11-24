@@ -5,12 +5,23 @@
     </span>
     <a href="dsahboard.html" class="dash_logo"><img src="images/logo.png" alt="logo" class="img-fluid"></a>
     <ul class="dashboard_link">
-        <li><a class="active" href="{{'dashboard'}}"><i class="fas fa-tachometer"></i>Dashboard</a></li>
-        <li><a href="{{route('vendor.order.index')}}"><i class="far fa-user"></i> Order</a></li>
-        <li><a href="{{route('vendor.product.index')}}"><i class="far fa-user"></i> Product</a></li>
-        <li><a href="{{route('vendor.review.index')}}"><i class="far fa-user"></i> Review</a></li>
-        <li><a href="{{route('vendor.shop-profile.index')}}"><i class="far fa-user"></i> Shop Profile</a></li>
-        <li><a href="{{route('vendor.profile')}}"><i class="far fa-user"></i> My Profile</a></li>
+        <li><a class="{{ setActiveSidebar(['vendor.dashboard']) }}" href="{{ route('vendor.dashboard') }}"><i
+                    class="fas fa-tachometer"></i>Dashboard</a></li>
+        <li><a class="{{ setActiveSidebar(['vendor.order.*']) }}" href="{{ route('vendor.order.index') }}"><i
+                    class="fas fa-box"></i> Order</a></li>
+        <li><a class="{{ setActiveSidebar([
+            'vendor.product.*',
+            'vendor.product-image-gallery.*',
+            'vendor.product-variant.*',
+            'vendor.product-variant-item.*',
+        ]) }}"
+                href="{{ route('vendor.product.index') }}"><i class="fas fa-cart-plus"></i> Product</a></li>
+        <li><a class="{{ setActiveSidebar(['vendor.review.*']) }}" href="{{ route('vendor.review.index') }}"><i
+                    class="far fa-star"></i> Review</a></li>
+        <li><a class="{{ setActiveSidebar(['vendor.shop-profile.index']) }}"
+                href="{{ route('vendor.shop-profile.index') }}"><i class="far fa-user"></i> Shop Profile</a></li>
+        <li><a class="{{ setActiveSidebar(['vendor.profile']) }}" href="{{ route('vendor.profile') }}"><i
+                    class="far fa-user"></i> My Profile</a></li>
         <li>
             <form method="POST" action="{{ route('logout') }}">
                 @csrf
