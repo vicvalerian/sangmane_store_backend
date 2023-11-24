@@ -8,6 +8,7 @@
     <ul class="dashboard_link">
         <li><a class="{{ setActiveSidebar(['vendor.dashboard']) }}" href="{{ route('vendor.dashboard') }}"><i
                     class="fas fa-tachometer"></i>Dashboard</a></li>
+        <li><a class="" href="{{ route('home') }}"><i class="fas fa-home"></i>Go To Home</a></li>
         <li><a class="{{ setActiveSidebar(['vendor.order.*']) }}" href="{{ route('vendor.order.index') }}"><i
                     class="fas fa-box"></i> Order</a></li>
         <li><a class="{{ setActiveSidebar([
