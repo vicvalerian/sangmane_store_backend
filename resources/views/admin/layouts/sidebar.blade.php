@@ -138,7 +138,8 @@
                             href="{{ route('admin.term-and-condition.index') }}">Term and Condition Page</a></li>
                 </ul>
             </li>
-            <li class="dropdown {{ setActiveSidebar(['admin.blog-category.*', 'admin.blog.*']) }}">
+            <li
+                class="dropdown {{ setActiveSidebar(['admin.blog-category.*', 'admin.blog.*', 'admin.blog-comment.index']) }}">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i
                         class="fas fa-columns"></i>
                     <span>Manage Blog</span></a>
@@ -147,6 +148,8 @@
                             href="{{ route('admin.blog-category.index') }}">Category</a></li>
                     <li class="{{ setActiveSidebar(['admin.blog.*']) }}"><a class="nav-link"
                             href="{{ route('admin.blog.index') }}">Blog</a></li>
+                    <li class="{{ setActiveSidebar(['admin.blog-comment.index']) }}"><a class="nav-link"
+                            href="{{ route('admin.blog-comment.index') }}">Comment</a></li>
                 </ul>
             </li>
             <li

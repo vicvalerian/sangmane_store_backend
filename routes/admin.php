@@ -7,6 +7,7 @@ use App\Http\Controllers\Backend\AdminReviewController;
 use App\Http\Controllers\Backend\AdminVendorProfileController;
 use App\Http\Controllers\Backend\AdvertisementController;
 use App\Http\Controllers\Backend\BlogCategoryController;
+use App\Http\Controllers\Backend\BlogCommentController;
 use App\Http\Controllers\Backend\BlogController;
 use App\Http\Controllers\Backend\BrandController;
 use App\Http\Controllers\Backend\CategoryController;
@@ -224,3 +225,7 @@ Route::resource('blog-category', BlogCategoryController::class);
 // Blog Route
 Route::put('blog/status-change', [BlogController::class, 'changeStatus'])->name('blog.status-change');
 Route::resource('blog', BlogController::class);
+
+// Blog Comment Route
+Route::get('blog-comment', [BlogCommentController::class, 'index'])->name('blog-comment.index');
+Route::delete('blog-comment/{id}/destroy', [BlogCommentController::class, 'destroy'])->name('blog-comment.destroy');

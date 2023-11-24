@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Backend\AdminController;
+use App\Http\Controllers\Frontend\BlogController;
 use App\Http\Controllers\Frontend\CheckOutController;
 use App\Http\Controllers\Frontend\PaymentController;
 use App\Http\Controllers\Frontend\CartController;
@@ -85,6 +86,10 @@ Route::post('contact', [PageController::class, 'handleContactForm'])->name('hand
 // Product Track Route
 Route::get('product-track', [ProductTrackController::class, 'index'])->name('product-track.index');
 
+// Blog Route
+Route::get('blog-detail/{slug}', [BlogController::class, 'blogDetails'])->name('blog-detail');
+Route::get('blog', [BlogController::class, 'blog'])->name('blog');
+
 //User Routes
 Route::group(['middleware' => ['auth', 'verified'], 'prefix' => 'user', 'as' => 'user.'], function () {
     Route::get('dashboard', [UserDashboardController::class, 'index'])->name('dashboard');
@@ -131,4 +136,7 @@ Route::group(['middleware' => ['auth', 'verified'], 'prefix' => 'user', 'as' => 
     // Vendor Request Route
     Route::get('vendor-request', [UserVendorRequestController::class, 'index'])->name('vendor-request.index');
     Route::post('vendor-request', [UserVendorRequestController::class, 'create'])->name('vendor-request.create');
+
+    // Blog Comment Route
+    Route::post('blog-comment', [BlogController::class, 'comment'])->name('blog-comment');
 });

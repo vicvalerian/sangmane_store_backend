@@ -127,7 +127,7 @@ class BlogController extends Controller
     {
         $blog = Blog::findOrFail($id);
         $this->deleteImage($blog->image);
-        $blog->comments()->delete();
+        $blog->blog_comments()->delete();
         $blog->delete();
 
         return response(['status' => 'success', 'message' => 'Deleted Successfully!']);
