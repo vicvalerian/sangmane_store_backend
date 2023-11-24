@@ -4,7 +4,7 @@
             <a href="{{ route('admin.dashboard') }}">{{ $settings->site_name }}</a>
         </div>
         <div class="sidebar-brand sidebar-brand-sm">
-            <a href="{{ route('admin.dashboard') }}">{{ limitText($settings->site_name,2) }}</a>
+            <a href="{{ route('admin.dashboard') }}">{{ limitText($settings->site_name, 2) }}</a>
         </div>
         <ul class="sidebar-menu">
             <li class="menu-header">Dashboard</li>
@@ -113,6 +113,16 @@
                             href="{{ route('admin.vendor-profile.index') }}">Vendor Profile</a></li>
                     <li class="{{ setActiveSidebar(['admin.payment-setting.*']) }}"><a class="nav-link"
                             href="{{ route('admin.payment-setting.index') }}">Payment Setting</a></li>
+                </ul>
+            </li>
+            <li class="dropdown {{ setActiveSidebar(['admin.withdraw-method.*']) }}">
+                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-wallet"></i>
+                    <span>Withdraw Payments</span></a>
+                <ul class="dropdown-menu">
+
+                    <li class="{{ setActiveSidebar(['admin.withdraw-method.*']) }}"><a class="nav-link"
+                            href="{{ route('admin.withdraw-method.index') }}">Withdraw Method</a></li>
+
                 </ul>
             </li>
             <li

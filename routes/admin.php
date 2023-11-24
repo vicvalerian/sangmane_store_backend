@@ -43,6 +43,7 @@ use App\Http\Controllers\Backend\TransactionController;
 use App\Http\Controllers\Backend\VendorConditionController;
 use App\Http\Controllers\Backend\VendorListController;
 use App\Http\Controllers\Backend\VendorRequestController;
+use App\Http\Controllers\Backend\WithdrawMethodController;
 use Illuminate\Support\Facades\Route;
 
 //Admin Routes
@@ -232,3 +233,6 @@ Route::resource('blog', BlogController::class);
 // Blog Comment Route
 Route::get('blog-comment', [BlogCommentController::class, 'index'])->name('blog-comment.index');
 Route::delete('blog-comment/{id}/destroy', [BlogCommentController::class, 'destroy'])->name('blog-comment.destroy');
+
+// Withdraw Method Route
+Route::resource('withdraw-method', WithdrawMethodController::class);
