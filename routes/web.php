@@ -42,8 +42,6 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__ . '/auth.php';
 
-Route::get('admin/login', [AdminController::class, 'login'])->name('admin.login');
-
 // Flash Sale Routes
 Route::get('flash-sale', [FlashSaleController::class, 'index'])->name('flash-sale');
 
