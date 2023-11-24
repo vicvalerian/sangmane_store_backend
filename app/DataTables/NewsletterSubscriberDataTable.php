@@ -29,9 +29,9 @@ class NewsletterSubscriberDataTable extends DataTable
             })
             ->addColumn('is_verified', function ($query) {
                 if ($query->is_verified == 1) {
-                    return '<i class="badge bg-success text-light">Yes</i>';
+                    return '<i class="badge badge-success text-light">Yes</i>';
                 } else {
-                    return '<i class="badge bg-danger text-light">No</i>';
+                    return '<i class="badge badge-danger text-light">No</i>';
                 }
             })
             ->rawColumns(['action', 'is_verified'])

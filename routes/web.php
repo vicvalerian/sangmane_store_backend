@@ -120,6 +120,9 @@ Route::group(['middleware' => ['auth', 'verified'], 'prefix' => 'user', 'as' => 
     // RazorPay Route
     Route::post('razorpay/payment', [PaymentController::class, 'payWithRazorpay'])->name('razorpay.payment');
 
+    // COD Route
+    Route::get('cod/payment', [PaymentController::class, 'payWithCod'])->name('cod.payment');
+
     // Order Route
     Route::get('order', [UserOrderController::class, 'index'])->name('order.index');
     Route::get('order/show/{id}', [UserOrderController::class, 'show'])->name('order.show');

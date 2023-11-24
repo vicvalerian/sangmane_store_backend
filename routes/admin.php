@@ -12,6 +12,7 @@ use App\Http\Controllers\Backend\BlogController;
 use App\Http\Controllers\Backend\BrandController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\ChildCategoryController;
+use App\Http\Controllers\Backend\CodSettingController;
 use App\Http\Controllers\Backend\CouponController;
 use App\Http\Controllers\Backend\CustomerListController;
 use App\Http\Controllers\Backend\FlashSaleController;
@@ -129,6 +130,7 @@ Route::get('payment-setting', [PaymentSettingController::class, 'index'])->name(
 Route::resource('paypal-setting', PaypalSettingController::class);
 Route::put('stripe-setting/{id}', [StripeSettingController::class, 'update'])->name('stripe-setting.update');
 Route::put('razorpay-setting/{id}', [RazorpaySettingController::class, 'update'])->name('razorpay-setting.update');
+Route::put('cod-setting/{id}', [CodSettingController::class, 'update'])->name('cod-setting.update');
 
 // Order Route
 Route::get('order-status', [OrderController::class, 'changeOrderStatus'])->name('order-status');

@@ -32,9 +32,9 @@ class UserProductReviewDataTable extends DataTable
             })
             ->addColumn('status', function ($query) {
                 if ($query->status == 1) {
-                    return "<span class='badge bg-success'>Approved</span>";
+                    return "<span class='badge badge-success'>Approved</span>";
                 } else {
-                    return "<span class='badge bg-warning'>Pending</span>";
+                    return "<span class='badge badge-warning'>Pending</span>";
                 }
             })
             ->rawColumns(['product', 'status'])
