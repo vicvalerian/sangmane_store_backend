@@ -115,14 +115,14 @@
                             href="{{ route('admin.payment-setting.index') }}">Payment Setting</a></li>
                 </ul>
             </li>
-            <li class="dropdown {{ setActiveSidebar(['admin.withdraw-method.*']) }}">
+            <li class="dropdown {{ setActiveSidebar(['admin.withdraw-method.*', 'admin.withdraw.*']) }}">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-wallet"></i>
                     <span>Withdraw Payments</span></a>
                 <ul class="dropdown-menu">
-
                     <li class="{{ setActiveSidebar(['admin.withdraw-method.*']) }}"><a class="nav-link"
                             href="{{ route('admin.withdraw-method.index') }}">Withdraw Method</a></li>
-
+                    <li class="{{ setActiveSidebar(['admin.withdraw.*']) }}"><a class="nav-link"
+                            href="{{ route('admin.withdraw.index') }}">Withdraw List</a></li>
                 </ul>
             </li>
             <li
