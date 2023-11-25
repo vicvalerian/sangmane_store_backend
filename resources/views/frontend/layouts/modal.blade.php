@@ -79,7 +79,10 @@
                     <ul class="wsus__button_area">
                         <li><button type="submit" class="add_cart" href="#">add to
                                 cart</button></li>
-                        <li><a href="#" class="add_to_wishlist" data-id="{{ $product->id }}"><i
+                        <li><a style="border: 1px solid gray;
+                            padding: 7px 11px;
+                            border-radius: 100%;"
+                                href="#" class="add_to_wishlist" data-id="{{ $product->id }}"><i
                                     class="fal fa-heart"></i></a></li>
                     </ul>
                 </form>

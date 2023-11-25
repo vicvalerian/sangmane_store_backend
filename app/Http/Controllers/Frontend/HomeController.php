@@ -112,7 +112,8 @@ class HomeController extends Controller
 
     public function vendorProductsPage(string $id)
     {
-        $products = Product::where(['status' => 1, 'is_approved' => 1, 'vendor_id' => $id])->orderBy('id', 'DESC')->paginate(12);
+        $products = Product::withAvg('reviews', 'rating')->withCount('reviews')
+            ->with(['product_variants', 'category', 'product_image_galleries'])->where(['status' => 1, 'is_approved' => 1, 'vendor_id' => $id])->orderBy('id', 'DESC')->paginate(12);
         $categories = Category::where(['status' => 1])->get();
         $brands = Brand::where(['status' => 1])->get();
         $vendor = Vendor::findOrFail($id);
