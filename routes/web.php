@@ -88,6 +88,9 @@ Route::get('product-track', [ProductTrackController::class, 'index'])->name('pro
 Route::get('blog-detail/{slug}', [BlogController::class, 'blogDetails'])->name('blog-detail');
 Route::get('blog', [BlogController::class, 'blog'])->name('blog');
 
+// Product Modal Route
+Route::get('show-product-modal/{id}', [HomeController::class, 'showProductModal'])->name('show-product-modal');
+
 //User Routes
 Route::group(['middleware' => ['auth', 'verified'], 'prefix' => 'user', 'as' => 'user.'], function () {
     Route::get('dashboard', [UserDashboardController::class, 'index'])->name('dashboard');

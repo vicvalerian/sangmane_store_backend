@@ -14,6 +14,7 @@ use App\Models\Product;
 use App\Models\Slider;
 use App\Models\Vendor;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Response;
 
 class HomeController extends Controller
 {
@@ -21,7 +22,7 @@ class HomeController extends Controller
     {
         $sliders = Slider::where('status', 1)->orderBy('serial', 'asc')->get();
         $flashSale = FlashSale::first();
-        $flashSaleItems = FlashSaleItem::where('show_at_home', 1)->where('status', 1)->get();
+        $flashSaleItems = FlashSaleItem::where('show_at_home', 1)->where('status', 1)->pluck('product_id')->toArray();
         $popularCategory = HomePageSetting::where('key', 'popular_category_section')->first();
         $brands = Brand::where('status', 1)->where('is_featured', 1)->get();
         $typeBaseProducts = $this->getTypeBaseProducts();
@@ -87,5 +88,14 @@ class HomeController extends Controller
         $vendor = Vendor::findOrFail($id);
 
         return view('frontend.pages.vendor-product', compact('products', 'categories', 'brands', 'vendor'));
+    }
+
+    function showProductModal(string $id)
+    {
+        $product = Product::findOrFail($id);
+
+        $content = view('frontend.layouts.modal', compact('product'))->render();
+
+        return Response::make($content, 200, ['Content-Type' => 'text/html']);
     }
 }
