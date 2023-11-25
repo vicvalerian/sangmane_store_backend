@@ -6,6 +6,24 @@
             }
         });
 
+        // increment product qty on prodat modal from modal blade
+        $(document).on('click', '.product-modal-increment', function() {
+            let input = $(this).siblings('.product-qty');
+            let quantity = parseInt(input.val()) + 1;
+            input.val(quantity);
+        })
+
+        // decrement product qty on prodat modal from modal blade
+        $(document).on('click', '.product-modal-decrement', function() {
+            let input = $(this).siblings('.product-qty');
+            let quantity = parseInt(input.val()) - 1;
+
+            if (quantity < 1) {
+                quantity = 1;
+            }
+            input.val(quantity);
+        })
+
         // add product into cart
         $(document).on('submit', '.shopping-cart-form', function(e) {
             e.preventDefault();

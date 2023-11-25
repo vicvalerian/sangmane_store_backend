@@ -72,8 +72,12 @@
                     <div class="wsus__quentity">
                         <h5>quantity :</h5>
                         <div class="select_number">
-                            <input class="number_area" type="text" min="1" max="100" name="qty"
-                                value="1" />
+                            <span class="spinner">
+                                <span class="sub product-modal-decrement">-</span>
+                                <input class="number_area product-qty" type="text" min="1" max="100"
+                                    name="qty" value="1">
+                                <span class="add product-modal-increment">+</span>
+                            </span>
                         </div>
                     </div>
                     <ul class="wsus__button_area">
