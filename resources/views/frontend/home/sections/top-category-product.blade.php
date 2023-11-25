@@ -43,19 +43,25 @@
                                 }
                                 if (array_keys($lastKey)[0] == 'category') {
                                     $categoryModel = \App\Models\Category::findOrFail($lastKey['category']);
-                                    $products[] = \App\Models\Product::where('category_id', $categoryModel->id)
+                                    $products[] = \App\Models\Product::withAvg('reviews', 'rating')
+                                        ->where('category_id', $categoryModel->id)
+                                        ->with(['product_variants', 'category', 'product_image_galleries'])
                                         ->take(12)
                                         ->orderBy('id', 'desc')
                                         ->get();
                                 } elseif (array_keys($lastKey)[0] == 'sub_category') {
                                     $categoryModel = \App\Models\SubCategory::findOrFail($lastKey['sub_category']);
-                                    $products[] = \App\Models\Product::where('sub_category_id', $categoryModel->id)
+                                    $products[] = \App\Models\Product::withAvg('reviews', 'rating')
+                                        ->where('sub_category_id', $categoryModel->id)
+                                        ->with(['product_variants', 'category', 'product_image_galleries'])
                                         ->take(12)
                                         ->orderBy('id', 'desc')
                                         ->get();
                                 } else {
                                     $categoryModel = \App\Models\ChildCategory::findOrFail($lastKey['child_category']);
-                                    $products[] = \App\Models\Product::where('child_category_id', $categoryModel->id)
+                                    $products[] = \App\Models\Product::withAvg('reviews', 'rating')
+                                        ->where('child_category_id', $categoryModel->id)
+                                        ->with(['product_variants', 'category', 'product_image_galleries'])
                                         ->take(12)
                                         ->orderBy('id', 'desc')
                                         ->get();
@@ -82,12 +88,8 @@
                                     <div class="wsus__hot_deals__single_text">
                                         <h5>{!! limitText($item->name) !!}</h5>
                                         <p class="wsus__rating">
-                                            @php
-                                                $avgRating = $item->reviews()->avg('rating');
-                                                $fullRating = round($avgRating);
-                                            @endphp
                                             @for ($i = 1; $i <= 5; $i++)
-                                                @if ($i <= $fullRating)
+                                                @if ($i <= $item->reviews_avg_rating)
                                                     <i class="fas fa-star"></i>
                                                 @else
                                                     <i class="far fa-star"></i>
