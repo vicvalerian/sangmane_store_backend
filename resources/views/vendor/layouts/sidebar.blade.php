@@ -20,6 +20,8 @@
                 href="{{ route('vendor.product.index') }}"><i class="fas fa-cart-plus"></i> Product</a></li>
         <li><a class="{{ setActiveSidebar(['vendor.review.*']) }}" href="{{ route('vendor.review.index') }}"><i
                     class="far fa-star"></i> Review</a></li>
+        <li><a class="{{ setActiveSidebar(['vendor.withdraw.*']) }}" href="{{ route('vendor.withdraw.index') }}"><i
+                    class="far fa-star"></i> Withdraw</a></li>
         <li><a class="{{ setActiveSidebar(['vendor.shop-profile.index']) }}"
                 href="{{ route('vendor.shop-profile.index') }}"><i class="far fa-user"></i> Shop Profile</a></li>
         <li><a class="{{ setActiveSidebar(['vendor.profile']) }}" href="{{ route('vendor.profile') }}"><i
