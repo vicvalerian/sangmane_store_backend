@@ -1,8 +1,16 @@
 @php
-    $footerInfo = \App\Models\FooterInfo::first();
-    $footerSocials = \App\Models\FooterSocial::where('status', 1)->get();
-    $footerGridTwos = \App\Models\FooterGridTwo::where('status', 1)->get();
-    $footerGridThrees = \App\Models\FooterGridThree::where('status', 1)->get();
+    $footerInfo = Cache::rememberForever('footer_info', function () {
+        return \App\Models\FooterInfo::first();
+    });
+    $footerSocials = Cache::rememberForever('footer_socials', function () {
+        return \App\Models\FooterSocial::where('status', 1)->get();
+    });
+    $footerGridTwos = Cache::rememberForever('footer_grid_two', function () {
+        return \App\Models\FooterGridTwo::where('status', 1)->get();
+    });
+    $footerGridThrees = Cache::rememberForever('footer_grid_three', function () {
+        return \App\Models\FooterGridThree::where('status', 1)->get();
+    });
     $footerTitle = \App\Models\FooterTitle::first();
 @endphp
 <footer class="footer_2">

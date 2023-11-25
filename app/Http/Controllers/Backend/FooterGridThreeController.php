@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\FooterGridThree;
 use App\Models\FooterTitle;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 
 class FooterGridThreeController extends Controller
 {
@@ -44,7 +45,7 @@ class FooterGridThreeController extends Controller
         $footer->status = $request->status;
         $footer->save();
 
-        // Cache::forget('footer_grid_three');
+        Cache::forget('footer_grid_three');
 
         toastr('Footer Grid Three Created Successfully!', 'success', 'success');
         return redirect()->route('admin.footer-grid-three.index');
@@ -84,7 +85,7 @@ class FooterGridThreeController extends Controller
         $footer->status = $request->status;
         $footer->save();
 
-        // Cache::forget('footer_grid_three');
+        Cache::forget('footer_grid_three');
 
         toastr('Footer Grid Three Update Successfully!', 'success', 'success');
         return redirect()->route('admin.footer-grid-three.index');
@@ -97,7 +98,7 @@ class FooterGridThreeController extends Controller
     {
         $footer = FooterGridThree::findOrFail($id);
         $footer->delete();
-        // Cache::forget('footer_grid_three');
+        Cache::forget('footer_grid_three');
 
         return response(['status' => 'success', 'message' => 'Footer Grid Three Deleted successfully!']);
     }
@@ -107,7 +108,7 @@ class FooterGridThreeController extends Controller
         $footer = FooterGridThree::findOrFail($request->id);
         $footer->status = $request->status == 'true' ? 1 : 0;
         $footer->save();
-        // Cache::forget('footer_grid_three');
+        Cache::forget('footer_grid_three');
 
         return response(['message' => 'Status has been updated!']);
     }

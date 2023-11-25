@@ -6,6 +6,7 @@ use App\DataTables\FooterSocialDataTable;
 use App\Http\Controllers\Controller;
 use App\Models\FooterSocial;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 
 class FooterSocialController extends Controller
 {
@@ -44,7 +45,7 @@ class FooterSocialController extends Controller
         $footer->status = $request->status;
         $footer->save();
 
-        // Cache::forget('footer_socials');
+        Cache::forget('footer_socials');
 
         toastr('Footer Social Created Successfully!', 'success', 'success');
         return redirect()->route('admin.footer-social.index');
@@ -86,7 +87,7 @@ class FooterSocialController extends Controller
         $footer->status = $request->status;
         $footer->save();
 
-        // Cache::forget('footer_socials');
+        Cache::forget('footer_socials');
 
         toastr('Footer Social Updated Successfully!', 'success', 'success');
         return redirect()->route('admin.footer-social.index');
@@ -100,7 +101,7 @@ class FooterSocialController extends Controller
         $footer = FooterSocial::findOrFail($id);
         $footer->delete();
 
-        // Cache::forget('footer_socials');
+        Cache::forget('footer_socials');
 
         return response(['status' => 'success', 'message' => 'Footer Social Deleted Successfully!']);
     }
@@ -111,7 +112,7 @@ class FooterSocialController extends Controller
         $footer->status = $request->status == 'true' ? 1 : 0;
         $footer->save();
 
-        // Cache::forget('footer_socials');
+        Cache::forget('footer_socials');
 
         return response(['message' => 'Status has been updated!']);
     }
