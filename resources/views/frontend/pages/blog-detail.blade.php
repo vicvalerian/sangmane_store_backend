@@ -74,7 +74,7 @@
                                                         href="#">{{ $blogItem->category->name }}</a>
                                                     <div class="wsus__blog_text_center">
                                                         <a
-                                                            href="{{ route('blog-detail', $blogItem->slug) }}">{!! limitText($blogItem->title, 45) !!}</a>
+                                                            href="{{ route('blog-detail', $blogItem->slug) }}">{!! limitText($blogItem->title, 22) !!}</a>
                                                         <p class="date">
                                                             {{ date('M D Y', strtotime($blogItem->created_at)) }}</p>
                                                     </div>
@@ -105,7 +105,7 @@
                                 </div>
                             @endforeach
                             @if (count($comments) === 0)
-                                <i>Be a first one to comment! </i>
+                                <i>Be the first one to comment! </i>
                             @endif
 
                             <div id="pagination">
@@ -167,7 +167,7 @@
                                     </a>
                                     <div class="wsus__blog_post_text">
                                         <a
-                                            href="{{ route('blog-detail', $blog->slug) }}">{{ limitText($blog->title, 35) }}</a>
+                                            href="{{ route('blog-detail', $blog->slug) }}">{{ limitText($blog->title, 22) }}</a>
                                         <p> <span>{{ date('M d Y', strtotime($blog->created_at)) }} </span>
                                             {{ count($blog->blog_comments) }} Comment </p>
                                     </div>

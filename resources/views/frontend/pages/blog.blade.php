@@ -39,7 +39,7 @@
                             <div class="wsus__blog_text">
                                 <a class="blog_top red" href="#">{{ $blog->category->name }}</a>
                                 <div class="wsus__blog_text_center">
-                                    <a href="{{ route('blog-detail', $blog->slug) }}">{!! limitText($blog->title, 45) !!}</a>
+                                    <a href="{{ route('blog-detail', $blog->slug) }}">{!! limitText($blog->title, 22) !!}</a>
                                     <p class="date">{{ date('M D Y', strtotime($blog->created_at)) }}</p>
                                 </div>
                             </div>
