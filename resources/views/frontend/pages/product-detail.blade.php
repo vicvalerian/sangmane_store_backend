@@ -12,9 +12,9 @@
                     <div class="col-12">
                         <h4>products details</h4>
                         <ul>
-                            <li><a href="#">home</a></li>
-                            <li><a href="#">product</a></li>
-                            <li><a href="#">product details</a></li>
+                            <li><a href="{{ url('/') }}">home</a></li>
+                            <li><a href="{{ route('products.index') }}">product</a></li>
+                            <li><a href="javascript:;">product details</a></li>
                         </ul>
                     </div>
                 </div>
@@ -199,7 +199,8 @@
                                                     <p><span>Address:</span> {{ $product->vendor->address }}</p>
                                                     <p><span>Phone:</span> {{ $product->vendor->phone }}</p>
                                                     <p><span>mail:</span> {{ $product->vendor->email }}</p>
-                                                    <a href="{{route('vendor.products', $product->vendor_id)}}" class="see_btn">visit store</a>
+                                                    <a href="{{ route('vendor.products', $product->vendor_id) }}"
+                                                        class="see_btn">visit store</a>
                                                 </div>
                                             </div>
                                             <div class="col-xl-12">

@@ -15,8 +15,8 @@
                     <div class="col-12">
                         <h4>forget password</h4>
                         <ul>
-                            <li><a href="#">login</a></li>
-                            <li><a href="#">forget password</a></li>
+                            <li><a href="{{route('login')}}">login</a></li>
+                            <li><a href="javascript:;">forget password</a></li>
                         </ul>
                     </div>
                 </div>

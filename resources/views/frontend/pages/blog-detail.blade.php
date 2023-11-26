@@ -12,8 +12,9 @@
                     <div class="col-12">
                         <h4>blog details</h4>
                         <ul>
-                            <li><a href="#">blog</a></li>
-                            <li><a href="#">blog details</a></li>
+                            <li><a href="{{ url('/') }}">home</a></li>
+                            <li><a href="{{ route('blog') }}">blogs</a></li>
+                            <li><a href="javascript:;">blog details</a></li>
                         </ul>
                     </div>
                 </div>

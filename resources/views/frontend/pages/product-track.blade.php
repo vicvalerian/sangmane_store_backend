@@ -12,8 +12,8 @@
                     <div class="col-12">
                         <h4>order tracking</h4>
                         <ul>
-                            <li><a href="#">home</a></li>
-                            <li><a href="#">order tracking</a></li>
+                            <li><a href="{{ url('/') }}">home</a></li>
+                            <li><a href="javascript:;">order tracking</a></li>
                         </ul>
                     </div>
                 </div>

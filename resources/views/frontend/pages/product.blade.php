@@ -12,8 +12,8 @@
                     <div class="col-12">
                         <h4>products</h4>
                         <ul>
-                            <li><a href="#">home</a></li>
-                            <li><a href="#">peoduct</a></li>
+                            <li><a href="{{ url('/') }}">home</a></li>
+                            <li><a href="javascript:;">product</a></li>
                         </ul>
                     </div>
                 </div>
