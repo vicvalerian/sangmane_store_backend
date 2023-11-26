@@ -18,7 +18,7 @@
         <div class="row justify-content-between">
             <div class="col-xl-3 col-sm-7 col-md-6 col-lg-3">
                 <div class="wsus__footer_content">
-                    <a class="wsus__footer_2_logo" href="#">
+                    <a class="wsus__footer_2_logo" href="javascript:;">
                         <img src="{{ asset(@$footerInfo->logo) }}" alt="logo">
                     </a>
                     <a class="action" href="callto:{{ @$footerInfo->phone }}"><i class="fas fa-phone-alt"></i>
@@ -28,7 +28,8 @@
                     <p><i class="fal fa-map-marker-alt"></i> {{ @$footerInfo->address }}</p>
                     <ul class="wsus__footer_social">
                         @foreach ($footerSocials as $link)
-                            <li><a class="behance" href="{{ $link->url }}"><i class="{{ $link->icon }}"></i></a>
+                            <li><a class="{{ $link->name }}" href="{{ $link->url }}"><i
+                                        class="{{ $link->icon }}"></i></a>
                             </li>
                         @endforeach
                     </ul>

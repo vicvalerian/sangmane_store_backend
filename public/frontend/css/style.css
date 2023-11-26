@@ -3976,7 +3976,7 @@ PRODUCT DETAILS START
 }
 
 .wsus__pro_det_description .nav .nav-item {
-    width: 16.66%;
+    width: 33.3%;
 }
 
 .wsus__pro_det_description .nav .nav-item button {
@@ -8516,7 +8516,7 @@ header .wsus__search button:hover {
     line-height: 50px;
     text-align: center;
     float: left;
-    background: #5897fb;
+    background: #5A8371;
     color: #fff;
     font-size: 23px;
     transition: all linear 0.3s;

@@ -24,13 +24,13 @@
             <div class="col-xl-5 col-3 col-md-3 col-lg-6">
                 <div class="wsus__call_icon_area">
                     <div class="wsus__call_area">
-                        <div class="wsus__call">
+                        {{-- <div class="wsus__call">
                             <i class="fas fa-user-headset"></i>
                         </div>
                         <div class="wsus__call_text">
                             <p>example@gmail.com</p>
                             <p>+569875544220</p>
-                        </div>
+                        </div> --}}
                     </div>
                     <ul class="wsus__icon_area">
                         <li><a href="{{ route('user.wishlist.index') }}"><i class="fal fa-heart"></i><span
