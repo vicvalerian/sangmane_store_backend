@@ -205,7 +205,7 @@
                                 gauge: {
                                     thickness: 0.2,
                                     bgColor: "#fff",
-                                    fgColor: "#2a9cf5"
+                                    fgColor: "#5A8371"
                                 },
                                 textCSS: 'font-weight:600;color:#fff;'
                             },
@@ -213,7 +213,7 @@
                                 gauge: {
                                     thickness: 0.2,
                                     bgColor: "#fff",
-                                    fgColor: "#2a9cf5"
+                                    fgColor: "#5A8371"
                                 },
                                 textCSS: 'font-weight:600;color:#fff;'
                             },
@@ -221,7 +221,7 @@
                                 gauge: {
                                     thickness: 0.2,
                                     bgColor: "#fff",
-                                    fgColor: "#2a9cf5"
+                                    fgColor: "#5A8371"
                                 },
                                 textCSS: 'font-weight:600;color:#fff;'
                             },
@@ -229,7 +229,7 @@
                                 gauge: {
                                     thickness: 0.2,
                                     bgColor: "#fff",
-                                    fgColor: "#2a9cf5"
+                                    fgColor: "#5A8371"
                                 },
                                 textCSS: 'font-weight:600;color:#fff;'
                             }

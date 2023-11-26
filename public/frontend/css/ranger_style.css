@@ -13,7 +13,7 @@
 
 .flat-slider .ui-widget-content {
 	color: #0B2C3D;
-	background: #89CAFC;
+	background: #3D6C6D;
 	background-image: none;
 	border-width: 0;
 }
@@ -45,7 +45,7 @@
 	cursor: pointer;
 	position: absolute;
 	z-index: 2;
-	background-color: #2A9CF5;
+	background-color: #5A8371;
 	border-color: #fff;
 	border-radius: 3px;
 	height: 20px;
