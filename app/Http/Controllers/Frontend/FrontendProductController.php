@@ -98,6 +98,39 @@ class FrontendProductController extends Controller
                         });
                 })
                 ->paginate(12);
+        } else if ($request->has('top_category')) {
+            $type = '';
+            $id = '';
+            $category = Category::where('slug', $request->top_category)->first();
+            if ($category) {
+                $type = 'category_id';
+                $id = $category->id;
+            }
+            $category = SubCategory::where('slug', $request->top_category)->first();
+            if ($category) {
+                $type = 'sub_category_id';
+                $id = $category->id;
+            }
+            $category = ChildCategory::where('slug', $request->top_category)->first();
+            if ($category) {
+                $type = 'child_category_id';
+                $id = $category->id;
+            }
+            $products = Product::withAvg('reviews', 'rating')->withCount('reviews')
+                ->with(['product_variants', 'category', 'product_image_galleries'])
+                ->where([
+                    'status' => 1,
+                    'is_approved' => 1,
+                    $type => $id,
+                ])
+                ->when($request->has('range'), function ($query) use ($request) {
+                    $price = explode(';', $request->range);
+                    $from = $price[0] ?? 0;
+                    $to = $price[1] ?? 8000;
+
+                    return $query->where('price', '>=', $from)->where('price', '<=', $to);
+                })
+                ->paginate(12);
         } else {
             $products = Product::withAvg('reviews', 'rating')->withCount('reviews')
                 ->with(['product_variants', 'category', 'product_image_galleries'])

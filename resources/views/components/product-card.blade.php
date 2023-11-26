@@ -1,6 +1,8 @@
 <div class="col-xl-3 col-sm-6 col-lg-4 {{ @$key }}">
     <div class="wsus__product_item">
-        <span class="wsus__new">{{ productType($product->product_type) }}</span>
+        @if ($product->product_type)
+            <span class="wsus__new">{{ productType($product->product_type) }}</span>
+        @endif
         @if (checkDiscount($product))
             <span class="wsus__minus">-{{ calculateDiscountPercentage($product->price, $product->offer_price) }}%</span>
         @endif
@@ -32,7 +34,8 @@
                 @endfor
                 <span>({{ $product->reviews_count }} review)</span>
             </p>
-            <a class="wsus__pro_name" href="{{ route('product-detail', $product->slug) }}">{{ limitText($product->name, 27) }}</a>
+            <a class="wsus__pro_name"
+                href="{{ route('product-detail', $product->slug) }}">{{ limitText($product->name, 27) }}</a>
             @if (checkDiscount($product))
                 <p class="wsus__price">{{ $settings->currency_icon }}{{ $product->offer_price }}
                     <del>{{ $settings->currency_icon }}{{ $product->price }}</del>
