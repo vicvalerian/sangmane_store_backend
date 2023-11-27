@@ -54,6 +54,12 @@
         gtag('config', 'UA-94034622-3');
     </script>
     <!-- /END GA -->
+
+    <style>
+        :root{
+            --dt-row-selected: 90, 131, 113;
+        }
+    </style>
 </head>
 
 <body>
