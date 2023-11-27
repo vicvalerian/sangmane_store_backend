@@ -113,12 +113,23 @@
                                                     <a class="wsus__category" href="#">{{ $product->category->name }}
                                                     </a>
                                                     <p class="wsus__pro_rating">
-                                                        @for ($i = 1; $i <= 5; $i++)
-                                                            @if ($i <= $product->reviews_avg_rating)
-                                                                <i class="fas fa-star"></i>
-                                                            @else
-                                                                <i class="far fa-star"></i>
-                                                            @endif
+                                                        @php
+                                                            $averageRating = $product->reviews_avg_rating;
+                                                            $fullStars = floor($averageRating);
+                                                            $emptyStars = 5 - $fullStars;
+                                                            $hasHalfStar = $averageRating - $fullStars >= 0.5;
+                                                        @endphp
+                                                        @for ($i = 0; $i < $fullStars; $i++)
+                                                            <i class="fas fa-star"></i>
+                                                        @endfor
+                                                        <!-- Half Star -->
+                                                        @if ($hasHalfStar)
+                                                            <i class="fas fa-star-half-alt"></i>
+                                                            @php $emptyStars--; @endphp
+                                                        @endif
+                                                        <!-- Empty Stars -->
+                                                        @for ($i = 0; $i < $emptyStars; $i++)
+                                                            <i class="far fa-star"></i>
                                                         @endfor
 
                                                         <span>({{ $product->reviews_count }} review)</span>
@@ -191,16 +202,22 @@
                                                         href="#">{{ @$product->category->name }} </a>
                                                     <p class="wsus__pro_rating">
                                                         @php
-                                                            $avgRating = $product->reviews()->avg('rating');
-                                                            $fullRating = round($avgRating);
+                                                            $averageRating = $product->reviews()->avg('rating');
+                                                            $fullStars = floor($averageRating);
+                                                            $emptyStars = 5 - $fullStars;
+                                                            $hasHalfStar = $averageRating - $fullStars >= 0.5;
                                                         @endphp
-
-                                                        @for ($i = 1; $i <= 5; $i++)
-                                                            @if ($i <= $fullRating)
-                                                                <i class="fas fa-star"></i>
-                                                            @else
-                                                                <i class="far fa-star"></i>
-                                                            @endif
+                                                        @for ($i = 0; $i < $fullStars; $i++)
+                                                            <i class="fas fa-star"></i>
+                                                        @endfor
+                                                        <!-- Half Star -->
+                                                        @if ($hasHalfStar)
+                                                            <i class="fas fa-star-half-alt"></i>
+                                                            @php $emptyStars--; @endphp
+                                                        @endif
+                                                        <!-- Empty Stars -->
+                                                        @for ($i = 0; $i < $emptyStars; $i++)
+                                                            <i class="far fa-star"></i>
                                                         @endfor
 
                                                         <span>({{ count($product->reviews) }} review)</span>
