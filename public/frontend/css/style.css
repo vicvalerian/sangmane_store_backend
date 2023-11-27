@@ -6651,7 +6651,7 @@ WISHLIST PAGE START
     align-items: center;
     justify-content: end;
     padding: 5px 20px;
-    background: #315461;
+    background: #2F4858;
 }
 
 .wsusd__dashboard_user {
@@ -6680,7 +6680,7 @@ WISHLIST PAGE START
 .dashboard_sidebar {
     width: 15%;
     height: 100vh;
-    background: #315461;
+    background: #2F4858;
     position: fixed;
     top: 0;
     left: 0;
@@ -6733,7 +6733,7 @@ WISHLIST PAGE START
 
 .dashboard_link li a:hover,
 .dashboard_link li a.active {
-    background: #051a25;
+    background: #021F2D;
 }
 
 .dashboard_content h3 {
