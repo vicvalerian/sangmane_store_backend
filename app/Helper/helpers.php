@@ -3,6 +3,7 @@
 // Set sidebar item active
 
 use App\Models\GeneralSetting;
+use App\Models\LogoSetting;
 use Illuminate\Support\Facades\Session;
 
 function setActiveSidebar(array $route)
@@ -134,4 +135,11 @@ function getCurrencyIcon()
     $icon = GeneralSetting::first();
 
     return $icon->currency_icon;
+}
+
+function getFavIcon()
+{
+    $logoSetting = LogoSetting::first();
+
+    return $logoSetting->favicon;
 }

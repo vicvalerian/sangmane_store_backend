@@ -5,7 +5,9 @@
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
-    <title>General Dashboard &mdash; Stisla</title>
+
+    <link rel="icon" type="image/png" href="http://127.0.0.1:8000/{{ getFavIcon() }}">
+    <title>Admin Dashboard</title>
 
     <!-- General CSS Files -->
     <link rel="stylesheet" href="{{ asset('backend/assets/modules/bootstrap/css/bootstrap.min.css') }}">
@@ -56,7 +58,7 @@
     <!-- /END GA -->
 
     <style>
-        :root{
+        :root {
             --dt-row-selected: 90, 131, 113;
         }
     </style>

@@ -13,7 +13,11 @@
         $products = \App\Models\Product::withAvg('reviews', 'rating')
             ->withCount('reviews')
             ->with(['product_variants', 'category', 'product_image_galleries'])
-            ->where('category_id', $category->id)
+            ->where([
+                'category_id' => $category->id,
+                'status' => 1,
+                'is_approved' => 1,
+            ])
             ->take(12)
             ->orderBy('id', 'desc')
             ->get();
@@ -22,7 +26,11 @@
         $products = \App\Models\Product::withAvg('reviews', 'rating')
             ->withCount('reviews')
             ->with(['product_variants', 'category', 'product_image_galleries'])
-            ->where('sub_category_id', $category->id)
+            ->where([
+                'sub_category_id' => $category->id,
+                'status' => 1,
+                'is_approved' => 1,
+            ])
             ->take(12)
             ->orderBy('id', 'desc')
             ->get();
@@ -31,7 +39,11 @@
         $products = \App\Models\Product::withAvg('reviews', 'rating')
             ->withCount('reviews')
             ->with(['product_variants', 'category', 'product_image_galleries'])
-            ->where('child_category_id', $category->id)
+            ->where([
+                'child_category_id' => $category->id,
+                'status' => 1,
+                'is_approved' => 1,
+            ])
             ->take(12)
             ->orderBy('id', 'desc')
             ->get();
