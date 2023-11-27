@@ -155,15 +155,54 @@ class FrontendProductController extends Controller
     {
         $product = Product::with(['vendor', 'category', 'product_image_galleries', 'product_variants', 'brand'])->where('slug', $slug)->where('status', 1)->first();
         $reviews = ProductReview::where('product_id', $product->id)->where('status', 1)->paginate(10);
+        $vendorRating = $this->getVendorRatingAttribute($product->vendor);
 
         return view('frontend.pages.product-detail', compact(
             'product',
             'reviews',
+            'vendorRating',
         ));
     }
 
     public function changeListView(Request $request)
     {
         Session::put('product_list_style', $request->style);
+    }
+
+    private function getVendorRatingAttribute($vendor)
+    {
+        $products = $vendor->products()->with('reviews')->get();
+
+        $totalRatings = 0;
+        $totalProducts = 0;
+
+        $vendorRating['totalRatings'] = 0;
+        $vendorRating['totalProducts'] = 0;
+
+        foreach ($products as $product) {
+            if (count($product->reviews) > 0) {
+                $totalProducts++;
+            }
+            $totalRatings += $product->reviews->avg('rating') != null ? $product->reviews->avg('rating') : 0;
+        }
+        $vendorRating['totalRatings'] = ($totalProducts > 0) ? $totalRatings / $totalProducts : 0;
+        $vendorRating['totalProducts'] = $totalProducts;
+
+        return $vendorRating;
+    }
+
+    private function getVendorRatingCountAttribute($vendor)
+    {
+        $products = $vendor->products()->with('reviews')->get();
+
+        $count = 0;
+
+        foreach ($products as $product) {
+            if (count($product->reviews) > 0) {
+                $count++;
+            }
+        }
+
+        return $count;
     }
 }
